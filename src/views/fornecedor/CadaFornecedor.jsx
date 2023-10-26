@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaFornecedor() {
+
     return (
         <div class="">
         <div style={{marginTop: '4%'}}>
@@ -17,6 +18,19 @@ export default function CadaFornecedor() {
                 <div style={{marginTop: '5%'}}>
 
                     <Form >
+                    <br />
+                        <img id="imagemExibicao" src="" alt="Imagem Selecionada" style={{ maxWidth: '100px' } } />
+                        <br />
+                    <Form.Group >
+                        <label>Imagen</label>
+                        <input type="file"
+                        name="imagem"
+                        accept="image/*"
+                        onChange={File}
+                        />
+
+                    </Form.Group >
+                        
                          
                         <Form.Group >
 
