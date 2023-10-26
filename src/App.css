@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+html {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+/*Formulario Cadastro CLiente*/
+.For_Cliente {
+   align-items: center;
+   width: 40em;
+   margin-top: 13%;
+   margin-left: 30%;
+   color: #63f800;
+   background-color:#d8779c1a;
+   text-align: center;
+   
+}
+.for_for {
+    border: 1px solid #d89b7798;
+    background-color: #96d87750;
+    
+}
+body{
+    background-image: url(https://www.10wallpaper.com/wallpaper/1366x768/1410/Party_Time-High_quality_wallpaper_1366x768.jpg);
+    background-size: cover;
+    border: 2ex solid #D4AA93;
+}
+/*Menu txt*/
+.menu-div {
+    text-align: right;
+     font-size: large;
+    border: solid #D4AA93;
+    
+}
+.menu-div a{
+    border: solid #d3b7ab98;
+    background-color:#55250a98;
+    color: #ff9d76; 
+   
+}
+/*Menu organização*/
+.nav-MenuHome ul li{
+    display: inline;
+    margin-right: 10px;
+    text-shadow: 2px 2px 2px black;
+}
+.nav-MenuHome ul ul {
+    display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-MenuHome ul li:hover ul{
+    display: block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/*sub de cadastro*/
+
+.subs-Cadastro{
+    display: none;
+    width:8em;
+    position: absolute;
+    text-align: center;
+    right: 18.8em;
+    top : 4.10em;
+
+}
+.subs-Cadastro a{
+    border: 1px solid #D3B7AB;
+       background-color:#58270bcb;
+       color: #ff9d76;
+       display: block;
+       margin-bottom: -20px;
+      padding: 10px;
+      text-decoration: none;
+      margin-top: 5px;
+      white-space: nowrap;
+   
 }
 
-.App-link {
-  color: #61dafb;
+/*sub categorias de categoria */
+.subs-catego{
+    display: none;
+    width:9em;
+    position: absolute;
+    text-align:center;
+    right:1.8em;
+    top : 4.0em;
+   }
+   /* textos da sub de categoria*/
+   .subs-catego a {
+       border: 1px solid #D3B7AB;
+       background-color:#58270bcb;
+       color: #ff9d76;
+       display: block;
+       margin-bottom: -20px;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-top: 5px;
+      white-space: nowrap;
+   }
+  
+/*centro site*/
+.div-meiosite{
+ height: 35em;
+ align-items: center;
+ 
+}
+/*Texto do meio do site*/
+.div-meiosite p {
+    background-color: #c74b4b9a;
+    color: #f3a6a6;
+    font-size: x-large;
+    margin-left: 10em;
+    margin-right: 10em;
+    margin-top: 8em;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #000000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
