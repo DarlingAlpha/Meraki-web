@@ -4,25 +4,40 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaFornecedor() {
+    function File (img){
+        const selecionar = img.target.files[0];
+        const imagem = document.getElementById('imagemExibicao');
 
+        if(selecionar){
+            //definição do src
+            const src =URL.createObjectURL (selecionar);
+            imagem.src = src;
+        }else{
+            // se nada for selecionado
+            imagem.src ='';
+        }
+    }
     return (
-        <div class="">
+        <div class="For_Fornecedor">
         <div style={{marginTop: '4%'}}>
 
             <Container  >
 
-                <h2 align="center" class="titulo_cadastroC"> Cadastro Fornecedor</h2>
+                <h2 align="center" class="titulo_cadastro"> Cadastro Fornecedor</h2>
 
                
 
                 <div style={{marginTop: '5%'}}>
-
+                   
                     <Form >
-                    <br />
-                        <img id="imagemExibicao" src="" alt="Imagem Selecionada" style={{ maxWidth: '100px' } } />
-                        <br />
+                        <div class="img">
+                    <p>Escolha imagens de seu trabalho</p>
+                    <div class='Imagen'>
+                    <br  />
+                    <img id="imagemExibicao" src="" alt="Imagem Selecionada" style={{ maxWidth: '100px' }} />
+                    <br /></div>
                     <Form.Group >
-                        <label>Imagen</label>
+                  
                         <input type="file"
                         name="imagem"
                         accept="image/*"
@@ -30,6 +45,57 @@ export default function CadaFornecedor() {
                         />
 
                     </Form.Group >
+                
+                    <Form.Group >
+                    
+                        <input type="file"
+                        name="imagem"
+                        accept="image/*"
+                        onChange={File}
+                        />
+
+                    </Form.Group >
+                
+                    <Form.Group >
+                    
+                        <input type="file"
+                        name="imagem"
+                        accept="image/*"
+                        onChange={File}
+                        />
+
+                    </Form.Group >
+                   
+                    <Form.Group >
+                    
+                        <input type="file"
+                        name="imagem"
+                        accept="image/*"
+                        onChange={File}
+                        />
+
+                    </Form.Group >
+                   
+                    <Form.Group >
+                    
+                        <input type="file"
+                        name="imagem"
+                        accept="image/*"
+                        onChange={File}
+                        />
+
+                    </Form.Group >
+                 
+                    <Form.Group >
+                    
+                        <input type="file"
+                        name="imagem"
+                        accept="image/*"
+                        onChange={File}
+                        />
+
+                    </Form.Group >
+                    </div>
                         
                          
                         <Form.Group >
@@ -139,7 +205,7 @@ export default function CadaFornecedor() {
                             color='olive'
                             floated='right'
                         >
-                            <Icon name='save' />
+                            <Icon name='check' />
                             Salvar
                         </Button>
 

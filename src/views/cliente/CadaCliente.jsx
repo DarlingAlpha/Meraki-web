@@ -12,7 +12,7 @@ export default function CadaCliente() {
 
                 <Container  >
 
-                    <h2 align="center" class="titulo_cadastroCli"> Cadastro Cliente</h2>
+                    <h2 align="center" class="titulo_cadastro"> Cadastro Cliente</h2>
 
                    
 
@@ -127,7 +127,7 @@ export default function CadaCliente() {
                                 color='olive'
                                 floated='right'
                             >
-                                <Icon name='save' />
+                                <Icon name='check' />
                                 Salvar
                             </Button>
 

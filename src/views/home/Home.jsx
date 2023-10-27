@@ -11,7 +11,7 @@ export default function Home () {
     <nav class="nav-MenuHome">
         <ul classe="Menu">
             <li class="menu-login">
-                <a href="">Login</a>
+                <a href="/LogUsuarios">Login</a>
             </li>
             <li class="menu-cadastro">
                 <a href="">Cadastrar-se</a>
