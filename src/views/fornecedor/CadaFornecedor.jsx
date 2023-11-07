@@ -30,7 +30,7 @@ export default function CadaFornecedor() {
                 <div style={{marginTop: '5%'}}>
                    
                     <Form >
-                        <div class="img">
+                        <div class="img-cadastroFornecedor">
                     <p>Escolha imagens de seu trabalho</p>
                     <div class='Imagen'>
                     <br  />

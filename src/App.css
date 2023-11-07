@@ -16,42 +16,49 @@ html {
     background-color:#d8779c1a;
     text-align: center;
 }
+
 /*Formulario Cadastro */
 .Imagen{ 
     border: solid;
     background-color: #d3b7aba6;
     top:100%;
- overflow: hidden;
- width: 100%;
- position: relative;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
-.img{
+
+.img-cadastroFornecedor{
     position: absolute;
     margin-left: 120%;
-    top: -25%;
+    top: -35%;
     width: 30em;
 }
-.img p{
+
+.img-cadastroFornecedor p{
     font-size: 2.1em;
     color: rgb(221, 183, 125);
     border: 2px solid rgba(124, 75, 75, 0.322);
     text-shadow:2px 2px 2px #000000;
     background-color: #f3a6a673;
+
 }
+
 .titulo_cadastro{
     border: 1px solid ;
     background-color: #ffffff8c;
 }
+
 .For_Fornecedor{
     align-items: center;
     width: 40em;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 50%;
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: auto;
     color: #8a340298;
     background-color:#d8779c1a;
     text-align: center;
 }
+
 .For_Cliente {
    align-items: center;
    width: 40em;
