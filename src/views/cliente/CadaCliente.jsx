@@ -128,7 +128,8 @@ export default function CadaCliente() {
                                 floated='right'
                             >
                                 <Icon name='check' />
-                                Salvar
+                                <Link to={'/PerfilCliente'}>Salvar</Link>
+                            
                             </Button>
 
                         </div>

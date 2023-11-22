@@ -5,6 +5,14 @@ html {
 *, *:before, *:after {
   box-sizing: border-box;
 }
+/*card-cliente*/
+.card-cliente{
+  margin-top: 10%;
+  color: #612121;
+}
+.TabelaCli{
+    display: block;
+}
 /*Tela Login*/
 .Log_Usuarios{
     align-items: center;

@@ -206,7 +206,7 @@ export default function CadaFornecedor() {
                             floated='right'
                         >
                             <Icon name='check' />
-                            Salvar
+                            <Link to={'/PerfilFornecedor'}>Voltar</Link>
                         </Button>
 
                     </div>
