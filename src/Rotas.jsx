@@ -11,6 +11,7 @@ import Home from './views/home/Home';
 import LogUsuarios from './views/home/LogUsuarios';
 
 import CadastroServicos from './views/servicos/CadastroServicos';
+import NovoServico from './views/servicos/NovoServico';
 
 
 
@@ -28,7 +29,7 @@ function Rotas() {
 
                 <Route path="/LogUsuarios" element={ <LogUsuarios/> } />
                 <Route path="/CadastroServicos" element={ <CadastroServicos/> } />
-                
+                <Route path="/NovoServico" element={ <NovoServico/> } />
             </Routes>
         </>
     )

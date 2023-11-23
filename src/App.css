@@ -5,6 +5,9 @@ html {
 *, *:before, *:after {
   box-sizing: border-box;
 }
+.Color-gre{
+    background-color:	#DEB887
+}
 /*card-cliente*/
 .card-cliente{
   margin-top: 10%;
@@ -66,6 +69,18 @@ html {
     background-color:#d8779c1a;
     text-align: center;
 }
+.perfil_Fornecedor{
+    display: flex;
+    width: 50em;
+    justify-content:center;   
+    flex-direction: column;
+    height: 30em;
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: auto;
+    background-color:#d8779c1a;
+    text-align: center; 
+}
 
 .For_Cliente {
    align-items: center;
@@ -81,6 +96,10 @@ html {
 .for_for {
     border: 1px solid #8a340298;
     background-color: rgba(145, 103, 78, 0.596);
+}
+.for_Servicos {
+    border: 1px solid #dcdad998;
+    background-color: rgba(42, 19, 5, 0.596);
     
 }
 /*fundo da tela*/

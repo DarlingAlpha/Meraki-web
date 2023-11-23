@@ -7,7 +7,7 @@ export default function ServicosdoFornecedor() {
     {
       id: "01",
       Foto: "https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg",
-      NomeFornecedor: "Gabriel",
+      NomeFornecedor: "Gabriel Gomes Lourenço",
 
     }
 
@@ -15,13 +15,20 @@ export default function ServicosdoFornecedor() {
   const [Servico] = useState([
     {
       id: "01",
-      NomeFornecedor: "Gabriel",
       Categoria: "Buffet",
       decoracoes: "Infantil",
       Avaliações: "defaultRating={0} maxRating={5}",
       Regiao: "Recife",
       Detalhes: "Buffe decorativo infantil"
     }, {
+      id: "01",
+      Categoria: "Decoração",
+      decoracoes: "Infantil",
+      Avaliações: "defaultRating={0} maxRating={5}",
+      Regiao: "Jaboatão dos Guararapes",
+      Detalhes: "Decoração decorativo infantil"
+    },
+    {
       id: "01",
       Categoria: "Decoração",
       decoracoes: "Infantil",
@@ -45,7 +52,7 @@ export default function ServicosdoFornecedor() {
           </Image>
           {/* Nome do fornecedor */}
           <div >
-            {Fornecedor.NomeFornecedor}
+            {Fornecedor.NomeFornecedor} <p> Meus Serviços</p>
           </div>
         </div>
       ))}
@@ -53,7 +60,7 @@ export default function ServicosdoFornecedor() {
 
       <body>
         <div>
-          <Button ><Link to={'/PerfilFornecedor'}>Novo Serviço</Link></Button>
+          <Button ><Link to={'/NovoServico'}>Novo Serviço</Link></Button>
         </div>
         <Table celled padded>
           <Table.Header>
@@ -76,7 +83,7 @@ export default function ServicosdoFornecedor() {
                 </Table.Cell>
                 <Table.Cell singleLine>{Servico.decoracoes}</Table.Cell>
                 <Table.Cell>
-                  <Rating icon='star' defaultRating={0} maxRating={5} disabled />
+                  <Rating icon='star' defaultRating={1} maxRating={5}  />
                 </Table.Cell>
                 <Table.Cell textAlign='right'>
                   {Servico.Regiao}
