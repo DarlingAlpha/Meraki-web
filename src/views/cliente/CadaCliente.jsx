@@ -1,10 +1,49 @@
-import React from "react";
+import axios from "axios";
+import React, {useEffect, useState} from "react";
 import InputMask from 'react-input-mask';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 
 export default function CadaCliente() {
+
+    const { state } = useLocation();
+    const [idCliente, setIdCliente] = useState();
+
+    const [nome, setNome] = useState();
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
+    const [regiao, setRegiao] = useState();
+    const [telefone, setTelefone] = useState();
+
+    useEffect(() => {
+        if (state != null && state.id !=null){
+            axios.get("http://localhost:8082/api/cliente/" + state.id)
+            .then((response) =>{
+                setIdCliente(response.data.id)
+                setNome(response.data.nome)
+                setEmail(response.data.email)
+                setSenha(response.data.senha)
+                setRegiao(response.data.regiao)
+                setTelefone(response.data.telefone)
+            })
+        }
+    }, [state])
+
+    function salvar(){
+
+        let clienteRequest = {
+            nome: nome,
+            email: email,
+            senha: senha,
+            regiao: regiao,
+            telefone: telefone
+        }
+        axios.post("http://localhost:8082/api/cliente", clienteRequest)
+        .then((response) => { console.log('Cliente cadastrado com sucesso.') })
+        .catch((error) => { console.log('Erro ao incluir o cliente.') })
+    }
+
     return (
 
         <div class="For_Cliente">
@@ -30,6 +69,8 @@ export default function CadaCliente() {
                                     maxLength="100"
                                     className="for_for"
                                     width={16}
+                                    value={nome}
+                                    onChange={e => setNome(e.target.value)}
                                   
 
                                 />
@@ -48,7 +89,8 @@ export default function CadaCliente() {
                                     >
                                     <InputMask
                                      required
-                                    
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
                                         
                                     /> 
                                     
@@ -62,13 +104,12 @@ export default function CadaCliente() {
                                 <Form.Input
                                     fluid
                                     label='senha'
+                                    type='password'
                                     width={16}
                                     className="for_for"
+                                    value={senha}
+                                    onChange={e => setSenha(e.target.value)}
                                     >
-                                    <InputMask 
-                                        
-                                        
-                                    /> 
                                 </Form.Input>
                                 </Form.Group >
                                 <Form.Group >
@@ -79,11 +120,9 @@ export default function CadaCliente() {
                                     label='Região'
                                     width={16}
                                     className="for_for"
-                                    >
-                                    <InputMask 
-                                    
-                                       
-                                    /> 
+                                    value={regiao}
+                                    onChange={e => setRegiao(e.target.value)}
+                                    > 
                                 </Form.Input>
                                 </Form.Group>
                               
@@ -97,7 +136,8 @@ export default function CadaCliente() {
                                     <InputMask 
                                            mask="(99) 9999.9999"
                                         maskChar={null}
-                                       
+                                       value={telefone}
+                                       onChange={e => setTelefone(e.target.value)}
                                         
                                     /> 
                                 </Form.Input>
@@ -122,10 +162,12 @@ export default function CadaCliente() {
                                 
                             <Button
                                 inverted
+                                icon
                                 type="button"
                                 circular
                                 color='olive'
                                 floated='right'
+                                onClick={() => salvar()}
                             >
                                 <Icon name='check' />
                                 Salvar

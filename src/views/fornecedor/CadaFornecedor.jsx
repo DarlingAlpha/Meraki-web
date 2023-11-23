@@ -1,9 +1,48 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import InputMask from 'react-input-mask';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaFornecedor() {
+    
+    const {state} = useLocation();
+    const [idFornecedor, setIdFornecedor] = useState();
+
+    const [nome, setNome] = useState();
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
+    const [regiao, setRegiao] = useState();
+    const [telefone, setTelefone] = useState();
+
+    useEffect(() => {
+        if (state != null && state.id !=null){
+            axios.get("http://localhost:8082/api/fornecedor/" + state.id)
+            .then((response) =>{
+                setIdFornecedor(response.data.id)
+                setNome(response.data.nome)
+                setEmail(response.data.email)
+                setSenha(response.data.senha)
+                setRegiao(response.data.regiao)
+                setTelefone(response.data.telefone)
+            })
+        }
+    }, [state])
+
+    function salvar(){
+
+        let clienteRequest = {
+            nome: nome,
+            email: email,
+            senha: senha,
+            regiao: regiao,
+            telefone: telefone
+        }
+        axios.post("http://localhost:8082/api/fornecedor", clienteRequest)
+        .then((response) => { console.log('Fornecedor cadastrado com sucesso.') })
+        .catch((error) => { console.log('Erro ao incluir Fornecedor.') })
+    }
+
     function File (img){
         const selecionar = img.target.files[0];
         const imagem = document.getElementById('imagemExibicao');
@@ -108,7 +147,8 @@ export default function CadaFornecedor() {
                                 maxLength="100"
                                 className="for_for"
                                 width={16}
-                              
+                                valeu={nome}
+                                onChange={e => setNome(e.target.value)}
 
                             />
                             </Form.Group>
@@ -126,7 +166,8 @@ export default function CadaFornecedor() {
                                 >
                                 <InputMask
                                  required
-                                
+                                 value={email}
+                                 onChange={e => setEmail(e.target.value)}
                                     
                                 /> 
                                 
@@ -142,11 +183,9 @@ export default function CadaFornecedor() {
                                 label='senha'
                                 width={16}
                                 className="for_for"
-                                >
-                                <InputMask 
-                                    
-                                    
-                                /> 
+                                value={senha}
+                                    onChange={e => setSenha(e.target.value)}
+                                > 
                             </Form.Input>
                             </Form.Group >
                             <Form.Group >
@@ -157,11 +196,10 @@ export default function CadaFornecedor() {
                                 label='Região'
                                 width={16}
                                 className="for_for"
-                                >
-                                <InputMask 
+                                value={regiao}
+                                onChange={e => setRegiao(e.target.value)}
+                               >
                                 
-                                   
-                                /> 
                             </Form.Input>
                             </Form.Group>
                           
@@ -175,6 +213,8 @@ export default function CadaFornecedor() {
                                 <InputMask 
                                        mask="(99) 9999.9999"
                                     maskChar={null}
+                                    value={telefone}
+                                    onChange={e => setTelefone(e.target.value)}
                                    
                                     
                                 /> 
@@ -204,6 +244,7 @@ export default function CadaFornecedor() {
                             circular
                             color='olive'
                             floated='right'
+                            onClick={() => salvar()}
                         >
                             <Icon name='check' />
                             Salvar
