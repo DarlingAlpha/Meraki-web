@@ -5,18 +5,19 @@ import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 
 export default function LogUsuarios() {
+    
     return (
 
         <div class="Log_Usuarios">
-            <div style={{marginTop: '4%'}}>
+            <div style={{ marginTop: '4%' }}>
 
                 <Container  >
 
                     <h2 align="center" class="titulo_cadastro"> Login Usuarios</h2>
 
-                   
 
-                    <div style={{marginTop: '5%'}}>
+
+                    <div style={{ marginTop: '5%' }}>
 
                         <Form >
                             <Form.Group >
@@ -26,9 +27,9 @@ export default function LogUsuarios() {
                                     label='Email'
                                     className="for_for"
                                     width={16}
-                                    >
+                                >
                                     <InputMask
-                                     required
+                                        required
                                     />
                                 </Form.Input>
                             </Form.Group >
@@ -40,12 +41,12 @@ export default function LogUsuarios() {
                                     label='senha'
                                     width={16}
                                     className="for_for"
-                                   />
-                                </Form.Group >
+                                />
+                            </Form.Group >
                         </Form>
-                        
-                        <div style={{marginTop: '4%'}}>
-                       
+
+                        <div style={{ marginTop: '4%' }}>
+
                             <Button
                                 inverted
                                 type="button"
@@ -53,11 +54,11 @@ export default function LogUsuarios() {
                                 color='grey'
                                 floated='left'
                             >
-                              <Icon name='home' />
-                              <Link to={'/'}>Voltar</Link>
+                                <Icon name='home' />
+                                <Link to={'/'}>Voltar</Link>
 
                             </Button>
-                                
+
                             <Button
                                 inverted
                                 type="button"
@@ -72,11 +73,11 @@ export default function LogUsuarios() {
                         </div>
 
                     </div>
-                    
+
                 </Container>
             </div>
         </div>
 
     );
-    }
+}
 

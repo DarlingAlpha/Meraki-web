@@ -1,56 +1,177 @@
 import React, { useState } from 'react';
-import { Header, Icon, Image, Label, Table } from 'semantic-ui-react';
+import InputMask from 'react-input-mask';
+import { Link } from 'react-router-dom';
+import { Button, Form, Header, Icon, Image, TextArea } from 'semantic-ui-react';
 
 export default function PerfilCliente() {
-  const [lista] = useState([
+  const HandleClick = () => {
+    console.log('Clicado')
+  };
+  const [Fornecedor] = useState([
     {
-      id:"01",
-      nome:"Gabriel",
-      cpf:"1321321312",
-      foneCelular:"23213213213",
-      foneFixo:"2132321312"
+      id: "01",
+      Foto: "https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg",
+      NomeFornecedor: "Mariana Barros do Barro ",
+      Apelido: "Jose linda",
+      Email: "Josel@Gmail.com.br",
+      NomeDaEmpresa: "Meraki Celebrações",
+      regiao: 'Mato Grosso'
+
     }
-  ]);
-   
-    return (
-  <Header as='h2' >
-    <Image circular src='https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg' />
-    Metodo Get Nome do Cliente
-    <div>
-    <Label>
-    <Icon name='mail' /> 23
-    </Label>
-    </div>
 
-    <body>
-  <Table color='yellow' sortable celled>
-  <Table.Header >
-          <Table.Row>
-            <Table.HeaderCell>Nome</Table.HeaderCell>
-            <Table.HeaderCell>CPF</Table.HeaderCell>
-            <Table.HeaderCell>Fone Celular</Table.HeaderCell>
-            <Table.HeaderCell>Fone Fixo</Table.HeaderCell>
-            <Table.HeaderCell textAlign='center'>Editar</Table.HeaderCell>
-        </Table.Row>
-    </Table.Header>
-    {lista.map(cliente => (
+  ])
 
-<Table.Row key={cliente.id}>
-    <Table.Cell>{cliente.nome}</Table.Cell>
-    <Table.Cell>{cliente.cpf}</Table.Cell>
-    <Table.Cell>{cliente.foneCelular}</Table.Cell>
-    <Table.Cell>{cliente.foneFixo}</Table.Cell>
-    <Table.Cell textAlign='center'>
 
-    </Table.Cell>
-</Table.Row>
-))}
+  return (
+    <Header as='h2' class="perfil_Fornecedor" >
+      {Fornecedor.map(Fornecedor => (
+        <div key={Fornecedor.id} style={{
+          display: 'flex', alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column'
 
-  </Table>
-</body>
-  
-    
-  </Header>
-  
-    ) 
- }
+
+        }}>
+          {/* Falta Imagem */}
+          <Image circular
+            src={Fornecedor.Foto} style={{ width: '8em', height: '8em' }}>
+
+          </Image>
+          {/* Nome do fornecedor */}
+          <div  >
+            {Fornecedor.NomeFornecedor}
+          </div>
+        </div>
+      ))
+      }
+      <div style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        backgroundColor: '#BDB76B'
+
+      }}>
+        <button style={{ color: 'blue', backgroundColor: '#BDB76B', border: 'none', outline: 'none' }} onClick={HandleClick}>
+          <Header as='h3'>
+            <Icon name='pencil' />
+            <Header.Content>
+              Configurações de conta
+              <Header.Subheader>Click aqui para editar</Header.Subheader>
+            </Header.Content>
+          </Header>
+        </button>
+      </div>
+      <body style={{
+        width: '100%',
+        backgroundColor: '#BDB76B',
+        alignItems: 'center',
+
+      }}>
+        {Fornecedor.map(Fornecedor => (
+
+
+
+          <Form widths='2em' ><h2 align="center" class="titulo_cadastro"> Perfil Cliente</h2>
+
+            <Form.Group width='equal' class="perfil_Fornecedor">
+              <Form.Input
+                width={5}
+                label='Nome Completo'
+                className="for_for"
+              >
+                <InputMask
+                  maskChar={null}
+                  placeholder={Fornecedor.NomeFornecedor}
+                  readOnly
+                />
+
+              </Form.Input>
+
+
+              <Form.Input
+                width={4}
+                label='Apelido'
+                className="for_for"
+              >
+                <InputMask
+                  maskChar={null}
+                  placeholder={Fornecedor.Apelido}
+                  readOnly
+                />
+
+              </Form.Input>
+              <Form.Input
+                width={4}
+                label='Email'
+                className="for_for"
+              >
+                <InputMask
+                  maskChar={null}
+                  placeholder={Fornecedor.Email}
+                  readOnly
+                />
+
+              </Form.Input>
+
+              <Form.Input
+                className="for_for"
+                label='Telefone'
+                width={3}
+
+              >
+                <InputMask
+
+                  mask="(99) 9999.9999"
+                  maskChar={null}
+
+                />
+
+              </Form.Input>
+            </Form.Group>   <Form.Group>
+
+            </Form.Group>
+            <Form.Group>
+              <Form.Input
+                width={16}
+                label='Região'
+                className="for_for"
+              >
+                <InputMask
+                  maskChar={null}
+                  placeholder={Fornecedor.regiao}
+                  readOnly
+                />
+
+              </Form.Input>
+            </Form.Group>
+            <Form.Group>
+              <TextArea
+                readOnly
+                placeholder='Minha descrição - Ex: Na (Nome de sua empresa), estamos comprometidos em oferecer um serviço de alta qualidade que atendam ás suas necessidades e superem suas expectativas. ' />
+            </Form.Group>
+
+          </Form>
+
+        ))
+        }
+
+
+
+
+
+      </body >
+      <Button style={{ marginleft: '50%' }}
+        inverted
+        type="button"
+        circular
+        color='olive'
+        floated='right'
+      >
+        <Icon name='home' />
+        <Link to={'/'}>voltar</Link>
+      </Button>
+
+
+    </Header >
+
+  )
+}

@@ -8,36 +8,36 @@ export default function CadaCliente() {
     return (
 
         <div class="For_Cliente">
-            <div style={{marginTop: '4%'}}>
+            <div style={{ marginTop: '4%' }}>
 
                 <Container  >
 
                     <h2 align="center" class="titulo_cadastro"> Cadastro Cliente</h2>
 
-                   
 
-                    <div style={{marginTop: '5%'}}>
+
+                    <div style={{ marginTop: '5%' }}>
 
                         <Form >
-                             
+
                             <Form.Group >
 
                                 <Form.Input
                                     required
                                     fluid
-                                    color= "green"
+                                    color="green"
                                     label='Nome'
                                     maxLength="100"
                                     className="for_for"
                                     width={16}
-                                  
+
 
                                 />
-                                </Form.Group>
+                            </Form.Group>
 
-                                <Form.Group >
-                                
-                                  
+                            <Form.Group >
+
+
 
                                 <Form.Input
                                     required
@@ -45,17 +45,17 @@ export default function CadaCliente() {
                                     label='Email'
                                     className="for_for"
                                     width={16}
-                                    >
+                                >
                                     <InputMask
-                                     required
-                                    
-                                        
-                                    /> 
-                                    
+                                        required
+
+
+                                    />
+
                                 </Form.Input>
 
-                            
-                        
+
+
                             </Form.Group >
                             <Form.Group >
 
@@ -64,50 +64,50 @@ export default function CadaCliente() {
                                     label='senha'
                                     width={16}
                                     className="for_for"
-                                    >
-                                    <InputMask 
-                                        
-                                        
-                                    /> 
+                                >
+                                    <InputMask
+
+
+                                    />
                                 </Form.Input>
-                                </Form.Group >
-                                <Form.Group >
-                                
-                             
+                            </Form.Group >
+                            <Form.Group >
+
+
                                 <Form.Input
                                     fluid
                                     label='Região'
                                     width={16}
                                     className="for_for"
-                                    >
-                                    <InputMask 
-                                    
-                                       
-                                    /> 
+                                >
+                                    <InputMask
+
+
+                                    />
                                 </Form.Input>
-                                </Form.Group>
-                              
-                                <Form.Group>
+                            </Form.Group>
+
+                            <Form.Group>
                                 <Form.Input
                                     fluid
                                     label='Telefone'
                                     width={16}
                                     className="for_for"
                                 >
-                                    <InputMask 
-                                           mask="(99) 9999.9999"
+                                    <InputMask
+                                        mask="(99) 9999.9999"
                                         maskChar={null}
-                                       
-                                        
-                                    /> 
+
+
+                                    />
                                 </Form.Input>
 
                             </Form.Group>
-                        
+
                         </Form>
-                        
-                        <div style={{marginTop: '4%'}}>
-                       
+
+                        <div style={{ marginTop: '4%' }}>
+
                             <Button
                                 inverted
                                 type="button"
@@ -115,11 +115,11 @@ export default function CadaCliente() {
                                 color='grey'
                                 floated='left'
                             >
-                              <Icon name='home' />
-                              <Link to={'/'}>Voltar</Link>
+                                <Icon name='home' />
+                                <Link to={'/'}>Voltar</Link>
 
                             </Button>
-                                
+
                             <Button
                                 inverted
                                 type="button"
@@ -129,17 +129,17 @@ export default function CadaCliente() {
                             >
                                 <Icon name='check' />
                                 <Link to={'/PerfilCliente'}>Salvar</Link>
-                            
+
                             </Button>
 
                         </div>
 
                     </div>
-                    
+
                 </Container>
             </div>
         </div>
 
     );
-    }
+}
 

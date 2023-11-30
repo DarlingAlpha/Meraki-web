@@ -27,15 +27,8 @@ export default function ServicosdoFornecedor() {
       Avaliações: "defaultRating={0} maxRating={5}",
       Regiao: "Jaboatão dos Guararapes",
       Detalhes: "Decoração decorativo infantil"
-    },
-    {
-      id: "01",
-      Categoria: "Decoração",
-      decoracoes: "Infantil",
-      Avaliações: "defaultRating={0} maxRating={5}",
-      Regiao: "Jaboatão dos Guararapes",
-      Detalhes: "Decoração decorativo infantil"
     }
+
 
   ]);
 
@@ -70,6 +63,7 @@ export default function ServicosdoFornecedor() {
               <Table.HeaderCell>Avaliações</Table.HeaderCell>
               <Table.HeaderCell>Região</Table.HeaderCell>
               <Table.HeaderCell>Detalhes</Table.HeaderCell>
+              <Table.HeaderCell>Editar</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -83,13 +77,29 @@ export default function ServicosdoFornecedor() {
                 </Table.Cell>
                 <Table.Cell singleLine>{Servico.decoracoes}</Table.Cell>
                 <Table.Cell>
-                  <Rating icon='star' defaultRating={1} maxRating={5}  />
+                  <Rating icon='star' defaultRating={2} maxRating={5} disabled />
                 </Table.Cell>
                 <Table.Cell textAlign='right'>
                   {Servico.Regiao}
                 </Table.Cell>
                 <Table.Cell>
                   {Servico.Detalhes}
+                </Table.Cell>
+                <Table.Cell>
+                  <button
+                    type="button"
+                    circular
+                    color='red'
+                    floated='right'>
+                    <Icon name='delete calendar' />
+                  </button>
+                  <button
+                    type="button"
+                    circular
+                    color='grey'
+                    floated='right'>
+                    <Icon name='pencil' />
+                  </button>
                 </Table.Cell>
               </Table.Row>
             ))}

@@ -1,201 +1,223 @@
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
-.Color-gre{
-    background-color:	#DEB887
+
+.Color-gre {
+    background-color: #DEB887
 }
+
 /*card-cliente*/
-.card-cliente{
-  margin-top: 10%;
-  color: #612121;
+.card-cliente {
+    margin-top: 10%;
+    color: #612121;
 }
-.TabelaCli{
+
+.TabelaCli {
     display: block;
 }
+
 /*Tela Login*/
-.Log_Usuarios{
+.Log_Usuarios {
     align-items: center;
     width: 40em;
     margin-top: 14%;
     margin-left: 30%;
     margin-right: 50%;
     color: #8a340298;
-    background-color:#d8779c1a;
+    background-color: #d8779c1a;
     text-align: center;
 }
 
 /*Formulario Cadastro */
-.Imagen{ 
+.Imagen {
     border: solid;
     background-color: #d3b7aba6;
-    top:100%;
+    top: 100%;
     overflow: hidden;
     width: 100%;
     position: relative;
 }
 
-.img-cadastroFornecedor{
+.img-cadastroFornecedor {
     position: absolute;
     margin-left: 120%;
     top: -35%;
     width: 30em;
 }
 
-.img-cadastroFornecedor p{
+.img-cadastroFornecedor p {
     font-size: 2.1em;
     color: rgb(221, 183, 125);
     border: 2px solid rgba(124, 75, 75, 0.322);
-    text-shadow:2px 2px 2px #000000;
+    text-shadow: 2px 2px 2px #000000;
     background-color: #f3a6a673;
 
 }
 
-.titulo_cadastro{
-    border: 1px solid ;
+.titulo_cadastro {
+    border: 1px solid;
     background-color: #ffffff8c;
 }
 
-.For_Fornecedor{
+.For_Fornecedor {
     align-items: center;
     width: 40em;
     margin-top: 10%;
     margin-left: 20%;
     margin-right: auto;
     color: #8a340298;
-    background-color:#d8779c1a;
+    background-color: #d8779c1a;
     text-align: center;
 }
-.perfil_Fornecedor{
+
+.perfil_Fornecedor {
     display: flex;
     width: 50em;
-    justify-content:center;   
+    justify-content: center;
     flex-direction: column;
     height: 30em;
     margin-top: 10%;
     margin-left: 20%;
     margin-right: auto;
-    background-color:#d8779c1a;
-    text-align: center; 
+    background-color: #d8779c1a;
+    text-align: center;
 }
 
 .For_Cliente {
-   align-items: center;
-   width: 40em;
-   margin-top: 10%;
-   margin-left: 30%;
-   margin-right: 50%;
-   color: #8a340298;
-   background-color:#d8779c1a;
-   text-align: center;
-   
+    align-items: center;
+    width: 40em;
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 50%;
+    color: #8a340298;
+    background-color: #d8779c1a;
+    text-align: center;
+
 }
+
 .for_for {
     border: 1px solid #8a340298;
     background-color: rgba(145, 103, 78, 0.596);
 }
+
 .for_Servicos {
     border: 1px solid #dcdad998;
     background-color: rgba(42, 19, 5, 0.596);
-    
+
 }
+
 /*fundo da tela*/
-body{
+body {
     background-image: url(https://www.tuacasa.com.br/wp-content/uploads/2019/10/festa-de-aniversario-00.jpg);
     background-size: cover;
-    border: 2ex solid #D4AA93;
+
 }
+
 /*Menu txt*/
 .menu-div {
+    display: flex;
+    flex-direction: row-reverse;
     text-align: right;
     font-size: 1.5em;
     border: solid #D4AA93;
-    
+    justify-content: space-between;
+
 }
-.menu-div a{
+
+.menu-div a {
     border: solid #d3b7ab98;
-    background-color:#55250a98;
-    color: #f3a6a6;; 
-   
+    background-color: #55250a98;
+    color: #f3a6a6;
+    ;
+
 }
+
 /*Menu organização*/
-.nav-MenuHome ul li{
+.nav-MenuHome ul li {
     display: inline;
     margin-right: 10px;
     text-shadow: 2px 2px 2px black;
 }
+
 .nav-MenuHome ul ul {
     display: none;
 }
 
-.nav-MenuHome ul li:hover ul{
+.nav-MenuHome ul li:hover ul {
     display: block;
 }
 
 
 /*sub de cadastro*/
 
-.subs-Cadastro{
+.subs-Cadastro {
     display: none;
-    width:8em;
+    width: 8em;
     position: absolute;
     text-align: center;
-    right: 17.8em;
-    top : 3.8em;
+    right: 16.5em;
+    top: 2.5em;
 
 }
-.subs-Cadastro a{
+
+.subs-Cadastro a {
     border: 1px solid #D3B7AB;
-       background-color:#58270bcb;
-       color: #f3a6a6;;
-       display: block;
-       margin-bottom: -20px;
-      padding: 10px 10px;
-      text-decoration: none;
-      margin-top: 5px;
-      white-space: nowrap;
-   
+    background-color: #58270bcb;
+    color: #f3a6a6;
+    ;
+    display: block;
+    margin-bottom: -20px;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin-top: 5px;
+    white-space: nowrap;
+
 }
 
 /*sub categorias de categoria */
-.subs-catego{
+.subs-catego {
     display: none;
-    width:8em;
+    width: 8em;
     position: absolute;
-    text-align:center;
-    right:1.2em;
-    top : 3.8em;
-   }
-   /* textos da sub de categoria*/
-   .subs-catego a {
-       border: 1px solid #D3B7AB;
-       background-color:#58270bcb;
-       color: #f3a6a6;;
-       display: block;
-       margin-bottom: -20px;
-      padding: 10px 10px;
-      margin-top: 5px;
-      white-space: nowrap;
-   }
-  
-/*centro site*/
-.div-meiosite{
- height: 35em;
- align-items: center;
- 
+    text-align: center;
+    right: 1.2em;
+    top: 3.8em;
 }
+
+/* textos da sub de categoria*/
+.subs-catego a {
+    border: 1px solid #D3B7AB;
+    background-color: #58270bcb;
+    color: #f3a6a6;
+    ;
+    display: block;
+    margin-bottom: -20px;
+    padding: 10px 10px;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+/*centro site*/
+.div-meiosite {
+    height: 35em;
+    align-items: center;
+
+}
+
 /*Texto do meio do site*/
 .div-meiosite p {
-    background-color: #c74b4b9a;
-    color: #f3a6a6;
-    font-size: x-large;
+
+    color: #ffffff;
+    font-size: 3em;
     margin-left: 10em;
     margin-right: 10em;
     margin-top: 8em;
     font-weight: bold;
     text-shadow: 2px 2px 2px #000000;
 }
-
