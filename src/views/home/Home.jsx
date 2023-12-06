@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './LogoM.png';
+import logo from '../../LogoM.png';
 
 export default function Home() {
 

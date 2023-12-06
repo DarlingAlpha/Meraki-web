@@ -7,21 +7,24 @@ html {
 *:after {
     box-sizing: border-box;
 }
-.Menu_perfil{
-    height:5em;
+
+.Menu_perfil {
+    height: 5em;
     margin-top: 1%;
     margin-right: -1em;
     text-align: center;
 
 }
-.Menu_perfil a{
-    color:rgb(2, 41, 41);
-    font-size:large;
-    
+
+.Menu_perfil a {
+    color: rgb(2, 41, 41);
+    font-size: large;
+
 }
 
 .Color-gre {
-    background-color: #DEB887
+    
+    background-color: #e1d0ba
 }
 
 /*card-cliente*/
@@ -87,7 +90,8 @@ html {
     background-color: #d8779c1a;
     text-align: center;
 }
-.perfil_Cliente{
+
+.perfil_Cliente {
     display: flex;
     width: 50em;
     justify-content: center;
