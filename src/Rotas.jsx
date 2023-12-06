@@ -7,12 +7,12 @@ import PerfilCliente from './views/cliente/PerfilCliente';
 import CadaFornecedor from './views/fornecedor/CadaFornecedor';
 import PerfilFornecedor from './views/fornecedor/PerfilFornecedor';
 
-import CategoriasPesquisa from './views/servicos/CategoriasPesquisa';
 import Home from './views/home/Home';
 import LogUsuarios from './views/home/LogUsuarios';
+import CategoriasPesquisa from './views/servicos/CategoriasPesquisa';
 
-import CadastroServicos from './views/servicos/CadastroServicos';
 import NovoServico from './views/servicos/NovoServico';
+import Servicos from './views/servicos/Servicos';
 
 
 
@@ -30,7 +30,7 @@ function Rotas() {
                 <Route path="/PerfilFornecedor" element={<PerfilFornecedor />} />
 
                 <Route path="/LogUsuarios" element={<LogUsuarios />} />
-                <Route path="/CadastroServicos" element={<CadastroServicos />} />
+                <Route path="/Servicos" element={<Servicos />} />
                 <Route path="/NovoServico" element={<NovoServico />} />
 
 

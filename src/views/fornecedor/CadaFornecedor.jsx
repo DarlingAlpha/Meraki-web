@@ -187,26 +187,26 @@ export default function CadaFornecedor() {
                         <div style={{ marginTop: '4%' }}>
 
                             <Button
-                                inverted
+                          
                                 type="button"
                                 circular
-                                color='grey'
+                                color='brown'
                                 floated='left'
                             >
                                 <Icon name='home' />
-                                <Link to={'/'}>Voltar</Link>
+                                <Link to={'/'}style={{color:'pink'}} >Voltar</Link>
 
                             </Button>
 
                             <Button
-                                inverted
+                             
                                 type="button"
                                 circular
                                 color='olive'
                                 floated='right'
                             >
                                 <Icon name='check' />
-                                <Link to={'/PerfilFornecedor'}>Confirmar</Link>
+                                <Link to={'/PerfilFornecedor'} style={{color:'black'}}>Confirmar</Link>
                             </Button>
 
                         </div>

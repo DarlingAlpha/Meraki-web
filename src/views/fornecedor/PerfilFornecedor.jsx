@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
-import { Button, Form, Header, Icon, Image, TextArea } from 'semantic-ui-react';
+import { Button, Form, Header, Icon, Image, Menu, Modal, TextArea } from 'semantic-ui-react';
 
 export default function PerfilFornecedor() {
+  const [open, setOpen] = React.useState(false)
   const HandleClick = () => {
     console.log('Clicado')
   };
@@ -21,8 +22,46 @@ export default function PerfilFornecedor() {
 
   ])
 
+  
 
   return (
+
+  
+    <html
+    style={{ 
+      width:'40em',
+      marginTop: '1%',
+      marginLeft: '30%',
+      marginRight: '-1em',
+      textAlign: 'center'
+            
+    
+          }}>
+
+  <Menu className='Menu_perfil'>
+
+    <Menu.Item>
+   
+  <a href="/">Home</a>
+
+  </Menu.Item>
+  <Menu.Item>
+
+      <a href="/">Minhas Fotos</a>
+
+  </Menu.Item>
+  <Menu.Item>
+
+      <a  href="/Servicos">Serviçõs Realizados</a>
+
+  </Menu.Item>
+  <Menu.Item>
+
+      <a href="/"></a>
+
+  </Menu.Item>
+    </Menu>
+            
     <Header as='h2' class="perfil_Fornecedor" >
       {Fornecedor.map(Fornecedor => (
         <div key={Fornecedor.id} style={{
@@ -44,21 +83,257 @@ export default function PerfilFornecedor() {
         </div>
       ))
       }
+
       <div style={{
         display: 'flex',
         justifyContent: 'flex-end',
         backgroundColor: '#FFDEAD'
 
       }}>
-        <button style={{ color: 'blue', backgroundColor: '#FFDEAD', border: 'none', outline: 'none' }} onClick={HandleClick}>
-          <Header as='h3'>
-            <Icon name='pencil' />
-            <Header.Content>
-              Configurações de conta
-              <Header.Subheader>Click aqui para editar</Header.Subheader>
-            </Header.Content>
-          </Header>
-        </button>
+
+
+        
+        <Modal style={{
+          display: 'flex',
+         width:'40em',
+         height:'44em',
+        backgroundColor: '#FFDEAD',
+        marginleft:'2em'
+
+      }}
+      open={open}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      trigger={<button style={{ color: 'blue', backgroundColor: '#FFDEAD', border: 'none', outline: 'none' }} onClick={HandleClick}>
+      <Header as='h3'>
+        <Icon name='pencil' />
+        <Header.Content>
+          Configurações de conta
+          <Header.Subheader>Click aqui para editar</Header.Subheader>
+        </Header.Content>
+      </Header>
+    </button>}>
+
+
+    <Form widths='2em' class="perfil_Cliente"><h2 align="center" class="titulo_cadastro"> Meus Dados</h2>
+
+<Form.Group width='equal' 
+style={{ 
+
+  marginTop: '1%',
+  marginLeft: '1.2em',
+  marginRight: '-1em',
+  textAlign: 'center'
+ }}>
+
+  <Form.Input 
+
+style={{ 
+
+  marginTop: '1%',
+  marginLeft: '2%',
+  width:'30em'
+
+      }}
+    width={15}
+    label='Nome Completo'
+    className="for_for"
+    
+  >
+    <InputMask
+      maskChar={null}
+      placeholder={Fornecedor.NomeFornecedor}
+      className=''
+   
+    />
+
+  </Form.Input>
+  </Form.Group>
+
+  <Form.Group style={{ 
+
+marginTop: '1%',
+marginLeft: '1.2em',
+marginRight: '-1em',
+textAlign: 'center'
+
+    }}>
+      <Form.Input
+  style={{ 
+    width:'30em',
+    marginTop: '1%',
+    marginLeft: '1.2em',
+    marginRight: '1em',
+    textAlign: 'center'
+    
+        }}
+    width={15}
+    label='Email'
+    className="for_for"
+  >
+    <InputMask
+      maskChar={null}
+      placeholder={Fornecedor.Email}
+      
+    />
+
+  </Form.Input>
+ 
+</Form.Group>
+
+<Form.Group
+
+style={{ 
+
+  marginTop: '1%',
+  marginLeft: '1.2em',
+  marginRight: '-1em',
+  textAlign: 'center'
+
+  }}>
+ <Form.Input
+style={{ 
+  with:'30em',
+  marginTop: '1%',
+  marginLeft: '2%',
+  width:'20em'
+
+      }}
+    width={15}
+    label='Apelido'
+    className="for_for"
+  >
+
+    <InputMask
+      maskChar={null}
+      placeholder={Fornecedor.Apelido}
+     
+    />
+
+  </Form.Input>
+  
+  </Form.Group>
+
+
+  <Form.Group
+  style={{ 
+
+    marginTop: '1%',
+    marginLeft: '1.2em',
+    marginRight: '-1em',
+    textAlign: 'center'
+          
+        }}>
+
+  <Form.Input
+  style={{ 
+
+    marginTop: '1%',
+    marginLeft: '2%',
+    width:'20em'
+  
+        }}
+    className="for_for"
+    label='Telefone'
+    width={15}
+
+  >
+    <InputMask
+
+      mask="(99) 9999.9999"
+      maskChar={null}
+
+    />
+
+  </Form.Input>
+  
+</Form.Group>   
+
+
+<Form.Group
+style={{ 
+
+  marginTop: '1%',
+  marginLeft: '1.2em',
+  marginRight: '-1em',
+  textAlign: 'center'
+        
+
+      }}>
+  <Form.Input
+   style={{ 
+    width:'30em',
+    marginTop: '1%',
+    marginLeft: '1.2em',
+    marginRight: '0.5em',
+    textAlign: 'center'
+    
+        }}
+    width={15}
+    label='Região'
+    className="for_for"
+  >
+    <InputMask
+      maskChar={null}
+      placeholder={Fornecedor.regiao}
+     
+    />
+
+  </Form.Input>
+</Form.Group>
+<Form.Group
+style={{ 
+  width:'37.4em',
+  marginTop: '1%',
+  marginLeft: '1.2em',
+  marginRight: '-1em',
+  textAlign: 'center'
+        
+
+      }}>
+           <Form.Input
+                  width={16}
+                  label='Nome Da Empresa'
+                  className="for_for"
+                >
+                  <InputMask
+                    maskChar={null}
+                    placeholder={Fornecedor.NomeDaEmpresa}
+                    
+                  />
+
+                </Form.Input>
+  <Form.Input style={{height:'5em'}}>       
+  <TextArea
+  style={{width:'15em'}}
+    placeholder='Minha descrição - Ex: Eu (Seu nome), gosto de festas e adoro organizalas, terei uma boa comunicação com meu fornecedor para mostrar oque nessecito' />
+      </Form.Input>
+</Form.Group>
+
+</Form>
+<Button style={{
+  marginLeft:'-2em',
+  marginRight: '16.5em',
+  marginTop: '1%'
+
+}}
+        
+        type="button"
+        circular
+        color='orange'
+        floated='right'
+      >
+        <Icon name='arrow up' />
+        <Link to={'/PerfilFornecedor'}><p> Confirmar</p></Link>
+      </Button>
+
+
+    </Modal>
+
+
+
+
+    
       </div>
       <body style={{
         width: '100%',
@@ -69,12 +344,27 @@ export default function PerfilFornecedor() {
         {Fornecedor.map(Fornecedor => (
 
 
-          <div style={{ width: '50em', alignItems: 'center', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-            <Form widths='2em' ><h2 align="center" class="titulo_cadastro"> Perfil Fornecedor</h2>
+          <div style={{ }}>
+            <Form widths='2em' ><h2 align="center" class="titulo_cadastro"> Meus dados</h2>
 
-              <Form.Group width='equal' class="perfil_Fornecedor">
+              <Form.Group width='equal' 
+              style={{ 
+
+                marginTop: '1%',
+                marginLeft: '1.2em',
+                marginRight: '-1em',
+                textAlign: 'center'
+               }}>
+                
                 <Form.Input
-                  width={5}
+                style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  width:'30em'
+                
+                      }}
+                  width={15}
                   label='Nome Completo'
                   className="for_for"
                 >
@@ -85,10 +375,24 @@ export default function PerfilFornecedor() {
                   />
 
                 </Form.Input>
+                </Form.Group> 
+                <Form.Group style={{ 
 
+                   marginTop: '1%',
+                   marginLeft: '1.2em',
+                   marginRight: '-1em',
+                   textAlign: 'center'
+                   }}>
 
                 <Form.Input
-                  width={4}
+                style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  width:'30em'
+                
+                      }}
+                  width={15}
                   label='Apelido'
                   className="for_for"
                 >
@@ -99,8 +403,24 @@ export default function PerfilFornecedor() {
                   />
 
                 </Form.Input>
+                </Form.Group> 
+                <Form.Group
+                style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '1.2em',
+                  marginRight: '-1em',
+                  textAlign: 'center'
+                  }}> 
                 <Form.Input
-                  width={4}
+                 style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  width:'30em'
+                
+                      }}
+                  width={15}
                   label='Email'
                   className="for_for"
                 >
@@ -111,24 +431,55 @@ export default function PerfilFornecedor() {
                   />
 
                 </Form.Input>
+                </Form.Group> 
+                <Form.Group
+                style={{ 
 
+                  marginTop: '1%',
+                  marginLeft: '1.2em',
+                  marginRight: '-1em',
+                  textAlign: 'center'
+                  }}> 
                 <Form.Input
+                 style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  width:'30em'
+                
+                      }}
                   className="for_for"
                   label='Telefone'
-                  width={3}
+                  width={15}
 
                 >
                   <InputMask
 
                     mask="(99) 9999.9999"
                     maskChar={null}
-
+                    readOnly
                   />
 
                 </Form.Input>
-              </Form.Group>   <Form.Group>
+              </Form.Group>   
+              
+              <Form.Group
+              style={{ 
+
+                marginTop: '1%',
+                marginLeft: '1.2em',
+                marginRight: '-1em',
+                textAlign: 'center'
+                }}>
                 <Form.Input
-                  width={16}
+                 style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  width:'30em'
+                
+                      }}
+                  width={15}
                   label='Região'
                   className="for_for"
                 >
@@ -139,9 +490,25 @@ export default function PerfilFornecedor() {
                   />
 
                 </Form.Input>
-              </Form.Group>   <Form.Group>
+              </Form.Group> 
+              
+                <Form.Group
+              style={{ 
+
+                marginTop: '1%',
+                marginLeft: '1.2em',
+                marginRight: '-1em',
+                textAlign: 'center'
+                }}>
                 <Form.Input
-                  width={16}
+                 style={{ 
+
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  width:'30em'
+                
+                      }}
+                  width={15}
                   label='Nome Da Empresa'
                   className="for_for"
                 >
@@ -153,36 +520,26 @@ export default function PerfilFornecedor() {
 
                 </Form.Input>
               </Form.Group>
-              <Form.Group>
+
+              <Form.Group
+              style={{ 
+
+                marginTop: '1%',
+                marginLeft: '1.2em',
+                marginRight: '-1em',
+                textAlign: 'center'
+                }}>
                 <TextArea
                   readOnly
                   placeholder='Minha descrição - Ex: Na (Nome de sua empresa), estamos comprometidos em oferecer um serviço de alta qualidade que atendam ás suas necessidades e superem suas expectativas. ' />
               </Form.Group>
 
             </Form>
-            <Button
-              inverted
-              type="button"
-              circular
-              color='olive'
-              floated='right'
-            >
-              <Icon name='check' />
-              <Link to={'/CadastroServicos'}>Meus Serviços</Link>
-            </Button>
           </div>
-        ))
-        }
-
-
-
-
+        ))}
 
       </body>
-
-
-
     </Header >
+    </html>
 
-  )
-}
+      )}

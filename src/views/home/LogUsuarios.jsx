@@ -48,10 +48,9 @@ export default function LogUsuarios() {
                         <div style={{ marginTop: '4%' }}>
 
                             <Button
-                                inverted
+                       
                                 type="button"
                                 circular
-                                color='grey'
                                 floated='left'
                             >
                                 <Icon name='home' />
@@ -60,14 +59,15 @@ export default function LogUsuarios() {
                             </Button>
 
                             <Button
-                                inverted
+                           
                                 type="button"
                                 circular
                                 color='olive'
                                 floated='right'
                             >
                                 <Icon name='heart' />
-                                Entrar
+                                <Link to={'/'}>Entrar</Link>
+                        
                             </Button>
 
                         </div>

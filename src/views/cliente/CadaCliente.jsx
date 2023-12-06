@@ -109,26 +109,26 @@ export default function CadaCliente() {
                         <div style={{ marginTop: '4%' }}>
 
                             <Button
-                                inverted
+                        
                                 type="button"
                                 circular
                                 color='grey'
                                 floated='left'
                             >
                                 <Icon name='home' />
-                                <Link to={'/'}>Voltar</Link>
+                                <Link to={'/'}style={{color:'pink'}} >Voltar</Link>
 
                             </Button>
 
                             <Button
-                                inverted
+                            
                                 type="button"
                                 circular
                                 color='olive'
                                 floated='right'
                             >
                                 <Icon name='check' />
-                                <Link to={'/PerfilCliente'}>Salvar</Link>
+                                <Link to={'/PerfilCliente'}style={{color:'black'}}>Salvar</Link>
 
                             </Button>
 
