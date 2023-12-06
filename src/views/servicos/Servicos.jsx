@@ -63,7 +63,6 @@ export default function ServicosdoFornecedor() {
               <Table.HeaderCell>Avaliações</Table.HeaderCell>
               <Table.HeaderCell>Região</Table.HeaderCell>
               <Table.HeaderCell>Detalhes</Table.HeaderCell>
-              <Table.HeaderCell>Editar</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -85,22 +84,7 @@ export default function ServicosdoFornecedor() {
                 <Table.Cell>
                   {Servico.Detalhes}
                 </Table.Cell>
-                <Table.Cell>
-                  <button
-                    type="button"
-                    circular
-                    color='red'
-                    floated='right'>
-                    <Icon name='delete calendar' />
-                  </button>
-                  <button
-                    type="button"
-                    circular
-                    color='grey'
-                    floated='right'>
-                    <Icon name='pencil' />
-                  </button>
-                </Table.Cell>
+             
               </Table.Row>
             ))}
           </Table.Body>
