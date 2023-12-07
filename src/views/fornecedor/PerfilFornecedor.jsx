@@ -53,7 +53,12 @@ export default function PerfilFornecedor() {
         </Menu.Item>
         <Menu.Item>
 
-          <a href="/Servicos"><Icon name='server' /></a>
+          <a href="/Servicos"><Icon name='star' /></a>
+
+        </Menu.Item>
+        <Menu.Item>
+
+          <a href="/NovoServico"><Icon name='server' /></a>
 
         </Menu.Item>
       </Menu>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Header, Icon, Image, Rating, Table } from 'semantic-ui-react';
+import { Button, Header, Image, Rating, Table } from 'semantic-ui-react';
 
 export default function ServicosdoFornecedor() {
   const [Fornecedor] = useState([
@@ -91,16 +91,6 @@ export default function ServicosdoFornecedor() {
         </Table>
 
       </body>
-      <Button
-        inverted
-        type="button"
-        circular
-        color='olive'
-        floated='right'
-      >
-        <Icon name='check' />
-        <Link to={'/PerfilFornecedor'}>Voltar</Link>
-      </Button>
 
 
     </Header>
