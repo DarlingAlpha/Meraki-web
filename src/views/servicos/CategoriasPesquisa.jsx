@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Card, Dropdown, Icon, Image, Menu, Rating } from "semantic-ui-react";
+import { Button, Card, Dropdown, Grid, Icon, Image, Menu, Modal, Rating } from "semantic-ui-react";
 import logo from '../../LogoM.png';
 
 
 export default function CategoriasPesquisa() {
+    const [open, setOpen] = React.useState(false)
     const [Categorias] = useState([
         {
             id: "06",
@@ -50,6 +51,23 @@ export default function CategoriasPesquisa() {
 
         }
     ])
+    const [Produto] = useState([
+        {
+          codigo: "01",
+          Foto: "https://get.pxhere.com/photo/table-celebration-decoration-meal-food-carnival-colorful-dessert-deco-festival-children-party-event-birthday-table-decoration-children's-birthday-invitation-guests-carnival-party-fasnet-shrove-monday-themed-party-partyaritkel-invited-1287302.jpg",
+          Titulo: "Buffet",
+          Descricao: "Voce vai adorar"
+    
+        },  {
+            codigo: "02",
+            Foto: "https://get.pxhere.com/photo/sweet-meal-food-carnival-color-colorful-cupcake-baking-dessert-delicious-cake-brand-pastries-face-children-icing-party-funny-candy-canape-faces-clowns-sweetness-treat-confectionery-delicacy-small-cakes-hand-made-sweets-children's-birthday-americans-carnival-party-fasnet-petit-four-clowngesichter-907612.jpg",
+            Titulo: "Decoração",
+            Descricao: "Faço produtos lindos para meus Clientes"
+      
+          }
+
+    ])
+    
     const [Fornecedor] = useState([
         {
             id: "01",
@@ -58,7 +76,8 @@ export default function CategoriasPesquisa() {
             Apelido: "Pedrinho",
             Email: "PedroH@Gmail.com.br",
             NomeDaEmpresa: "Meraki Celebrações",
-            regiao: 'Vista Alegre'
+            regiao: 'Vista Alegre',
+            Telefone:'(81) 92772-2594'
 
         }, {
             id: "02",
@@ -67,7 +86,8 @@ export default function CategoriasPesquisa() {
             Apelido: "Biel",
             Email: "Gabel@Gmail.com.br",
             NomeDaEmpresa: "Modelo Meraki",
-            regiao: 'Alagoas'
+            regiao: 'Alagoas',
+            Telefone:'(81) 9040-4598'
 
         }, {
             id: "03",
@@ -76,7 +96,7 @@ export default function CategoriasPesquisa() {
             Apelido: "Linda",
             Email: "Linda@Gmail.com.br",
             NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife'
+            Regiao: 'Recife',Telefone:'(81) 95562-2553'
 
         }
 
@@ -150,7 +170,8 @@ export default function CategoriasPesquisa() {
                                 <span className='data'>2023</span>
                             </Card.Meta>
                             <Card.Description>
-                                Descrição
+                                <h3>Contato</h3>
+                            {Fornecedor.Telefone}
                             </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
@@ -159,6 +180,46 @@ export default function CategoriasPesquisa() {
                                 <Rating icon='star' defaultRating={2} maxRating={5} />
                             </a>
                         </Card.Content>
+
+                        
+                        <Modal style={{
+            display: 'flex',
+         
+    
+            backgroundColor: '#4F4F4F',
+            marginleft: '2em'
+
+          }}
+          
+            open={open}
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            basic
+            inverted
+            size='small'
+            trigger={<Button color='blue'>Ver Serviços</Button>}
+            > 
+            {Produto.map(Produto => (
+          
+            <Grid
+            style={{marginTop:"4em"}}>
+                 
+            <Grid.Column width={9}>
+                <h2>{Produto.Titulo}</h2>
+                <p>Esse é um dos servições que este fornecedor Ofereçe.</p>
+            </Grid.Column>
+            <Grid.Column width={9}>
+              <Image src={Produto.Foto} />
+            </Grid.Column>
+            <Grid.Column style={{marginTop:'',marginRight:"4em"}} width={6}>
+                <h1>Descrição do Serviço </h1>
+              <h3>{Produto.Descricao}.</h3>
+              
+            </Grid.Column>
+          </Grid>
+          
+          ))}
+          </Modal>
                     </Card>
 
                 ))}

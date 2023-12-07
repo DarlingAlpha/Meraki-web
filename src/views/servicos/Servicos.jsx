@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Header, Image, Rating, Table } from 'semantic-ui-react';
+import { Button, Header, Image, Modal, Rating, Table } from 'semantic-ui-react';
 
 export default function ServicosdoFornecedor() {
+  const [open, setOpen] = React.useState(false)
   const [Fornecedor] = useState([
     {
       id: "01",
@@ -87,6 +88,23 @@ export default function ServicosdoFornecedor() {
              
               </Table.Row>
             ))}
+             <Modal style={{
+            display: 'flex',
+            width: '40em',
+            height: '44em',
+            backgroundColor: '#FFDEAD',
+            marginleft: '2em'
+
+          }}
+          
+            open={open}
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            basic
+            inverted
+            size='small'
+            trigger={<Button color='blue'>Editar</Button>}
+            ></Modal>
           </Table.Body>
         </Table>
 
