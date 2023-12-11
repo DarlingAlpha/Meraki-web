@@ -7,13 +7,15 @@ html {
 *:after {
     box-sizing: border-box;
 }
-.novo_servico{
+
+.novo_servico {
     margin-top: 1%;
-    display:flex;
-  justify-content:space-between;
-  background-image: url(https://img.freepik.com/vetores-gratis/logotipo-elegante-dourado-com-moldura_52683-13462.jpg?w=740&t=st=1702319452~exp=1702320052~hmac=23b5c082ae762a3d67f59f71b6d9923e271804dc4c6ae951a86043ac97d9f282) ;
+    display: flex;
+    justify-content: space-between;
+    background-image: url(https://img.freepik.com/vetores-gratis/logotipo-elegante-dourado-com-moldura_52683-13462.jpg?w=740&t=st=1702319452~exp=1702320052~hmac=23b5c082ae762a3d67f59f71b6d9923e271804dc4c6ae951a86043ac97d9f282);
 }
-.pesquisa_servicos{
+
+.pesquisa_servicos {
     background-color: #D3B7AB;
 }
 
@@ -32,7 +34,7 @@ html {
 }
 
 .Color-gre {
-    
+
     background-color: #e1d0ba
 }
 
@@ -80,25 +82,33 @@ html {
     background-color: #f3a6a673;
 
 }
-.perfil_body{
-    width: 60em;
+
+.perfil_body {
+    width: 100%;
+    height: auto;
     background-color: #f8f7f795;
 }
 
 .titulo_cadastro {
     background-color: #d5a490;
     color: #4e2121;
-    font-family:'Georgia','Georgia',sans-serif;
+    font-family: 'Georgia', 'Georgia', sans-serif;
+}
+
+.html_fornecedor {
+    display: flex;
+    align-items: center;
+    background-color: #e8d9d962;
+    width: 100%;
+
 }
 
 .For_Fornecedor {
-    align-items: center;
     width: 40em;
-    margin-top: 10%;
-    margin-left: 20%;
+    margin-left: 36%;
     margin-right: auto;
     color: #8a340298;
-    background-color: #d8779c1a;
+
     text-align: center;
 }
 

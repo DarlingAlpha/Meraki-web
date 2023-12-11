@@ -4,218 +4,154 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaFornecedor() {
-    function File(img) {
-        const selecionar = img.target.files[0];
-        const imagem = document.getElementById('imagemExibicao');
+    // function File(img) {
+    //     const selecionar = img.target.files[0];
+    //     const imagem = document.getElementById('imagemExibicao');
 
-        if (selecionar) {
-            //definição do src
-            const src = URL.createObjectURL(selecionar);
-            imagem.src = src;
-        } else {
-            // se nada for selecionado
-            imagem.src = '';
-        }
-    }
+    //     if (selecionar) {
+    //         //definição do src
+    //         const src = URL.createObjectURL(selecionar);
+    //         imagem.src = src;
+    //     } else {
+    //         // se nada for selecionado
+    //         imagem.src = '';
+    //     }
+    // }
     return (
-        <div class="For_Fornecedor">
-            <div style={{ marginTop: '4%' }}>
 
-                <Container  >
+        <html className='html_fornecedor'>
 
-                    <h2 align="center" class="titulo_cadastro"> Cadastro Fornecedor</h2>
+            <div className="For_Fornecedor">
+                <div style={{ marginTop: '34%' }}>
+
+                    <Container  >
+
+                        <h2 align="center" class="titulo_cadastro"> Cadastro Fornecedor</h2>
 
 
 
-                    <div style={{ marginTop: '5%' }}>
+                        <div style={{ marginTop: '5%' }}>
 
-                        <Form >
-                            <div class="img-cadastroFornecedor">
-                                <p>Escolha imagens de seu trabalho</p>
-                                <div class='Imagen'>
-                                    <br />
-                                    <img id="imagemExibicao" src="" alt="Imagem Selecionada" style={{ maxWidth: '100px' }} />
-                                    <br /></div>
+                            <Form >
                                 <Form.Group >
 
-                                    <input type="file"
-                                        name="imagem"
-                                        accept="image/*"
-                                        onChange={File}
-                                    />
-
-                                </Form.Group >
-
-                                <Form.Group >
-
-                                    <input type="file"
-                                        name="imagem"
-                                        accept="image/*"
-                                        onChange={File}
-                                    />
-
-                                </Form.Group >
-
-                                <Form.Group >
-
-                                    <input type="file"
-                                        name="imagem"
-                                        accept="image/*"
-                                        onChange={File}
-                                    />
-
-                                </Form.Group >
-
-                                <Form.Group >
-
-                                    <input type="file"
-                                        name="imagem"
-                                        accept="image/*"
-                                        onChange={File}
-                                    />
-
-                                </Form.Group >
-
-                                <Form.Group >
-
-                                    <input type="file"
-                                        name="imagem"
-                                        accept="image/*"
-                                        onChange={File}
-                                    />
-
-                                </Form.Group >
-
-                                <Form.Group >
-
-                                    <input type="file"
-                                        name="imagem"
-                                        accept="image/*"
-                                        onChange={File}
-                                    />
-
-                                </Form.Group >
-                            </div>
-
-
-                            <Form.Group >
-
-                                <Form.Input
-                                    required
-                                    fluid
-                                    color="green"
-                                    label='Nome'
-                                    maxLength="100"
-                                    className="for_for"
-                                    width={16}
-
-
-                                />
-                            </Form.Group>
-
-                            <Form.Group >
-
-
-
-                                <Form.Input
-                                    required
-                                    fluid
-                                    label='Email'
-                                    className="for_for"
-                                    width={16}
-                                >
-                                    <InputMask
+                                    <Form.Input
                                         required
+                                        fluid
+                                        color="green"
+                                        label='Nome'
+                                        maxLength="100"
+                                        className="for_for"
+                                        width={16}
 
 
                                     />
+                                </Form.Group>
 
-                                </Form.Input>
+                                <Form.Group >
 
 
 
-                            </Form.Group >
-                            <Form.Group >
+                                    <Form.Input
+                                        required
+                                        fluid
+                                        label='Email'
+                                        className="for_for"
+                                        width={16}
+                                    >
+                                        <InputMask
+                                            required
 
-                                <Form.Input
-                                    fluid
-                                    label='senha'
-                                    width={16}
-                                    className="for_for"
+
+                                        />
+
+                                    </Form.Input>
+
+
+
+                                </Form.Group >
+                                <Form.Group >
+
+                                    <Form.Input
+                                        fluid
+                                        label='senha'
+                                        width={16}
+                                        className="for_for"
+                                    >
+                                        <InputMask
+
+
+                                        />
+                                    </Form.Input>
+                                </Form.Group >
+                                <Form.Group >
+
+
+                                    <Form.Input
+                                        fluid
+                                        label='Região'
+                                        width={16}
+                                        className="for_for"
+                                    >
+                                        <InputMask
+
+
+                                        />
+                                    </Form.Input>
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <Form.Input
+                                        fluid
+                                        label='Telefone'
+                                        width={16}
+                                        className="for_for"
+                                    >
+                                        <InputMask
+                                            mask="(99) 9999.9999"
+                                            maskChar={null}
+
+
+                                        />
+                                    </Form.Input>
+
+                                </Form.Group>
+
+                            </Form>
+
+                            <div style={{ marginTop: '4%' }}>
+
+                                <Button
+
+                                    type="button"
+                                    circular
+                                    color='brown'
+                                    floated='left'
                                 >
-                                    <InputMask
+                                    <Icon name='home' />
+                                    <Link to={'/'} style={{ color: 'pink' }} >Voltar</Link>
 
+                                </Button>
 
-                                    />
-                                </Form.Input>
-                            </Form.Group >
-                            <Form.Group >
+                                <Button
 
-
-                                <Form.Input
-                                    fluid
-                                    label='Região'
-                                    width={16}
-                                    className="for_for"
+                                    type="button"
+                                    circular
+                                    color='olive'
+                                    floated='right'
                                 >
-                                    <InputMask
+                                    <Icon name='check' />
+                                    <Link to={'/PerfilFornecedor'} style={{ color: 'black' }}>Confirmar</Link>
+                                </Button>
 
-
-                                    />
-                                </Form.Input>
-                            </Form.Group>
-
-                            <Form.Group>
-                                <Form.Input
-                                    fluid
-                                    label='Telefone'
-                                    width={16}
-                                    className="for_for"
-                                >
-                                    <InputMask
-                                        mask="(99) 9999.9999"
-                                        maskChar={null}
-
-
-                                    />
-                                </Form.Input>
-
-                            </Form.Group>
-
-                        </Form>
-
-                        <div style={{ marginTop: '4%' }}>
-
-                            <Button
-                          
-                                type="button"
-                                circular
-                                color='brown'
-                                floated='left'
-                            >
-                                <Icon name='home' />
-                                <Link to={'/'}style={{color:'pink'}} >Voltar</Link>
-
-                            </Button>
-
-                            <Button
-                             
-                                type="button"
-                                circular
-                                color='olive'
-                                floated='right'
-                            >
-                                <Icon name='check' />
-                                <Link to={'/PerfilFornecedor'} style={{color:'black'}}>Confirmar</Link>
-                            </Button>
+                            </div>
 
                         </div>
 
-                    </div>
-
-                </Container>
+                    </Container>
+                </div>
             </div>
-        </div>
+        </html>
     );
 }
 
