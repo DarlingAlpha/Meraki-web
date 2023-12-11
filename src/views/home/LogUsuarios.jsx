@@ -1,21 +1,16 @@
 import React from "react";
-import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
-import { Button, Container, Form, Icon } from 'semantic-ui-react';
+import { Button, Container, Form, Icon, Image } from 'semantic-ui-react';
 
 
 export default function LogUsuarios() {
     
     return (
+<body class="Log_Usuarios">
 
-        <div class="Log_Usuarios">
-            <div style={{ marginTop: '4%' }}>
+                <Container style={{width:'30em'}}>
 
-                <Container  >
-
-                    <h2 align="center" class="titulo_cadastro"> Login Usuarios</h2>
-
-
+                    <h1 align="center" class="titulo_cadastro"> Login Usuarios</h1>
 
                     <div style={{ marginTop: '5%' }}>
 
@@ -28,9 +23,7 @@ export default function LogUsuarios() {
                                     className="for_for"
                                     width={16}
                                 >
-                                    <InputMask
-                                        required
-                                    />
+                                   
                                 </Form.Input>
                             </Form.Group >
 
@@ -59,10 +52,10 @@ export default function LogUsuarios() {
                             </Button>
 
                             <Button
-                           
+                                inverted
                                 type="button"
                                 circular
-                                color='olive'
+                                color='pink'
                                 floated='right'
                             >
                                 <Icon name='heart' />
@@ -75,8 +68,12 @@ export default function LogUsuarios() {
                     </div>
 
                 </Container>
-            </div>
-        </div>
+                <Image
+              src='logo.png' style={{ width: '60em', height: '60em' }}>
+
+            </Image>
+        
+        </body>
 
     );
 }

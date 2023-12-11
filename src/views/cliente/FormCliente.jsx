@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 
-export default function CadaCliente() {
+export default function FormCliente() {
     return (
 
         <div class="For_Cliente">
@@ -46,11 +46,7 @@ export default function CadaCliente() {
                                     className="for_for"
                                     width={16}
                                 >
-                                    <InputMask
-                                        required
-
-
-                                    />
+                                    
 
                                 </Form.Input>
 
@@ -60,35 +56,31 @@ export default function CadaCliente() {
                             <Form.Group >
 
                                 <Form.Input
+                                required
                                     fluid
                                     label='senha'
                                     width={16}
                                     className="for_for"
                                 >
-                                    <InputMask
-
-
-                                    />
+                                   
                                 </Form.Input>
                             </Form.Group >
                             <Form.Group >
 
 
                                 <Form.Input
+                                required
                                     fluid
                                     label='Região'
                                     width={16}
                                     className="for_for"
                                 >
-                                    <InputMask
-
-
-                                    />
                                 </Form.Input>
                             </Form.Group>
 
                             <Form.Group>
                                 <Form.Input
+                                required
                                     fluid
                                     label='Telefone'
                                     width={16}

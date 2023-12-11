@@ -7,6 +7,15 @@ html {
 *:after {
     box-sizing: border-box;
 }
+.novo_servico{
+    margin-top: 1%;
+    display:flex;
+  justify-content:space-between;
+  background-image: url(https://img.freepik.com/vetores-gratis/logotipo-elegante-dourado-com-moldura_52683-13462.jpg?w=740&t=st=1702319452~exp=1702320052~hmac=23b5c082ae762a3d67f59f71b6d9923e271804dc4c6ae951a86043ac97d9f282) ;
+}
+.pesquisa_servicos{
+    background-color: #D3B7AB;
+}
 
 .Menu_perfil {
     height: 5em;
@@ -39,11 +48,8 @@ html {
 
 /*Tela Login*/
 .Log_Usuarios {
+    display: flex;
     align-items: center;
-    width: 40em;
-    margin-top: 14%;
-    margin-left: 30%;
-    margin-right: 50%;
     color: #8a340298;
     background-color: #d8779c1a;
     text-align: center;
@@ -74,10 +80,15 @@ html {
     background-color: #f3a6a673;
 
 }
+.perfil_body{
+    width: 60em;
+    background-color: #f8f7f795;
+}
 
 .titulo_cadastro {
-    border: 1px solid;
-    background-color: #ffffff8c;
+    background-color: #d5a490;
+    color: #4e2121;
+    font-family:'Georgia','Georgia',sans-serif;
 }
 
 .For_Fornecedor {
@@ -90,20 +101,6 @@ html {
     background-color: #d8779c1a;
     text-align: center;
 }
-
-.perfil_Cliente {
-    display: flex;
-    width: 50em;
-    justify-content: center;
-    flex-direction: column;
-    height: 30em;
-    margin-top: 10%;
-    margin-left: 20%;
-    margin-right: auto;
-    background-color: rgb(9, 212, 90);
-    text-align: center;
-}
-
 
 .perfil_Fornecedor {
     display: flex;
@@ -144,10 +141,9 @@ html {
 }
 
 /*fundo da tela*/
-body {
+.body_imgHome {
     background-image: url(https://www.tuacasa.com.br/wp-content/uploads/2019/10/festa-de-aniversario-00.jpg);
     background-size: cover;
-
 }
 
 /*Menu txt*/

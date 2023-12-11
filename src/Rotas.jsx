@@ -1,15 +1,14 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 
-import CadaCliente from './views/cliente/CadaCliente';
-import PerfilCliente from './views/cliente/PerfilCliente';
+import FormCliente from './views/cliente/FormCliente';
+import Perfil from './views/home/Perfil';
 
-import CadaFornecedor from './views/fornecedor/CadaFornecedor';
-import PerfilFornecedor from './views/fornecedor/PerfilFornecedor';
+import FormFornecedor from './views/fornecedor/FormFornecedor';
 
 import Home from './views/home/Home';
 import LogUsuarios from './views/home/LogUsuarios';
-import CategoriasPesquisa from './views/servicos/CategoriasPesquisa';
+import PesquisaServicos from './views/servicos/PesquisaServicos';
 
 import NovoServico from './views/servicos/NovoServico';
 import Servicos from './views/servicos/Servicos';
@@ -21,13 +20,12 @@ function Rotas() {
         <>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/CategoriasPesquisa" element={<CategoriasPesquisa />} />
+                <Route path="/PesquisaServicos" element={<PesquisaServicos />} />
 
-                <Route path="/CadaCliente" element={<CadaCliente />} />
-                <Route path="/PerfilCliente" element={<PerfilCliente />} />
+                <Route path="/FormCliente" element={<FormCliente />} />
+                <Route path="/Perfil" element={<Perfil />} />
 
-                <Route path="/CadaFornecedor" element={<CadaFornecedor />} />
-                <Route path="/PerfilFornecedor" element={<PerfilFornecedor />} />
+                <Route path="/FormFornecedor" element={<FormFornecedor />} />
 
                 <Route path="/LogUsuarios" element={<LogUsuarios />} />
                 <Route path="/Servicos" element={<Servicos />} />

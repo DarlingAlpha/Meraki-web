@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Card, Dropdown, Grid, Icon, Image, Menu, Modal, Rating } from "semantic-ui-react";
-import logo from '../../LogoM.png';
 
 
 export default function CategoriasPesquisa() {
@@ -102,35 +101,9 @@ export default function CategoriasPesquisa() {
 
     ]);
     return (
-        <html>
+        <html className='pesquisa_servicos'>
 
-            <Menu className='Menu_perfil'
-                style={{ display: 'flex', justifyContent: 'center' }}
-            >
-                <img src={logo} alt="Logo" style={{ width: '70px', height: '70px', marginRight: '84.8%' }}></img>
-
-                <Menu.Item>
-
-                    <a href="/"> <Icon name='home' /></a>
-
-                </Menu.Item>
-                <Menu.Item>
-
-                    <a href="/PerfilCliente"><Icon name='user' /></a>
-
-                </Menu.Item>
-                <Menu.Item>
-
-                    <a href=""><Icon name='calendar alternate outline' /></a>
-
-                </Menu.Item>
-                <Menu.Item>
-
-                    <a href="/"><Icon name='cart arrow down' /></a>
-
-                </Menu.Item>
-            </Menu>
-            <head style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-around' }}>
+            <head style={{ display: 'flex', flexDirection: 'row-reverse'}}>
 
 
                 <div style={{ marginTop: '7px' }} class="ui secondary menu">
@@ -139,7 +112,21 @@ export default function CategoriasPesquisa() {
                             <div class="ui icon input">
                                 <input type="text" placeholder="Search..." /><i aria-hidden="true" class="search icon"></i></div></div><a class="item"></a></div>
                 </div>
+                <Menu >
+                    <Dropdown text='Região' multiple icon='filter'>
+                        <Dropdown.Menu>
+                            <Dropdown.Menu scrolling>
+                                {Categorias.map(Categorias => (
+                                    <Dropdown.Item
+                                        key={Categorias.Regiao} {...Categorias}
+                                    />
 
+                                ))}
+
+                            </Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu>
 
 
                 <Menu >
@@ -160,7 +147,7 @@ export default function CategoriasPesquisa() {
 
 
             </head>
-            <body style={{ justifyContent: 'space-between', marginTop: '6em', marginLeft: '6em' }} >
+            <body style={{ marginTop: '6em', marginLeft: '6em' }} >
                 {Fornecedor.map(Fornecedor => (
                     <Card>
                         <Image src={Fornecedor.Foto} style={{ width: '21em', height: '15em' }} car />

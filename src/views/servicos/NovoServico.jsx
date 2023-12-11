@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
-import { Button, Card, Form, Header, Icon, Image, Menu, Modal, Segment, TextArea } from 'semantic-ui-react';
-import logo from '../../LogoM.png';
+import { Button, Card, Form, Header, Icon, Image, Modal, Segment, TextArea } from 'semantic-ui-react';
 export default function NovoServico() {
   
   const [op, setOp] = React.useState(false)
@@ -54,8 +53,8 @@ export default function NovoServico() {
   const [Fornecedor] = useState([
     {
       id: "01",
-      Foto: "https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg",
-      NomeFornecedor: "Gabriel Gomes Lourenço",
+      Foto: "https://img.freepik.com/vetores-gratis/logotipo-elegante-dourado-com-moldura_52683-13462.jpg?w=740&t=st=1702319452~exp=1702320052~hmac=23b5c082ae762a3d67f59f71b6d9923e271804dc4c6ae951a86043ac97d9f282",
+      Nome: "Gabriel Gomes Lourenço",
 
     }
 
@@ -65,86 +64,46 @@ export default function NovoServico() {
 
   return (
 
-    <html
-      style={{
-        display:'flex',
-        flexDirection:'column',
-        justifyContent:'center',
-        marginRight: '-1em',
-        textAlign: 'center'
-
-
-      }}>
-          <Menu className='Menu_perfil'
-                style={{ display: 'flex', justifyContent: 'center' }}
-            >
-                <img src={logo} alt="Logo" style={{ width: '70px', height: '69px', marginRight: '45.8%' }}></img>
-
-                <Menu.Item>
-
-                    <a href="/"> <Icon name='home' /></a>
-
-                </Menu.Item>
-                <Menu.Item>
-
-                    <a href="/PerfilFornecedor"><Icon name='user' /></a>
-
-                </Menu.Item>
-                <Menu.Item>
-
-                    <a href=""><Icon name='calendar alternate outline' /></a>
-
-                </Menu.Item>
-                <Menu.Item>
-
-                    <a href="/"><Icon name='cart arrow down' /></a>
-
-                </Menu.Item>
-            </Menu>
-
-         <Header as='h1'style={{display:'flex',justifyContent:'center'}}>
-          {Fornecedor.map(Fornecedor => (
-            <div key={Fornecedor.id} style={{ display: 'flex', alignItems: 'center' }}>
+    <html  className='novo_servico' >
+      <div>
+      {Fornecedor.map(Fornecedor => (
+            <div key={Fornecedor.id}>
               {/* Falta Imagem */}
               <Image circular
-                src={Fornecedor.Foto} style={{ width: '60px', height: '60px' }}>
+                src={Fornecedor.Foto} style={{ width: '30em', height: '30em' }}/>
+              
 
-              </Image>
-              {/* Nome do fornecedor */}
-              <div >
-                {Fornecedor.NomeFornecedor} <p> Meus Serviços</p>
-              </div>
+              <h1>
+                {Fornecedor.Nome}
+              </h1>
+              <hr />
             </div>
-          ))}    </Header>
-      <body   style={{
+            
+          ))}  
+          </div>
+ 
 
+      <body   style={{
         height:'50em',
-        backgroundColor:'#FFDEAD',
         marginTop: '1%',
         textAlign: 'center'
 
 
       }}>
+         
      
       <Modal style={{
             display: 'flex',
             width: '40em',
             height: '44em',
-            backgroundColor: '#FFDEAD',
             marginleft: '2em'
 
           }}
             open={op}
             onClose={() => setOp(false)}
             onOpen={() => setOp(true)}
-            trigger={<button style={{ 
-              color: 'blue', 
-              backgroundColor: '#3CB371',
-           
-               outline: 'none' 
-               }} onClick={HandleClick}>
+            trigger={<button onClick={HandleClick}>
               <Header as='h3'>
-                <Icon name='edit' />
                 <Header.Content>
                    Quais Seus Serviços?
                   <Header.Subheader>Click Aqui Para Adicinar Serviços</Header.Subheader>
@@ -225,12 +184,9 @@ export default function NovoServico() {
             <div 
             style={{
               display:'flex',
-              justifyContent:'center',
               marginTop:'2em'
             }}>
-            <Card.Group 
-      
-            >
+            <Card.Group className='cards_servico' >
               <Card>
                 <Image
                   floated='right'
@@ -246,11 +202,10 @@ export default function NovoServico() {
                   </Card.Description>
                   </Card.Content>
                 <Card.Content>
-            <Modal style={{
-            display: 'flex',
+             <Modal style={{
+ 
             width: '40em',
             height: '44em',
-            backgroundColor: '#FFDEAD',
             marginleft: '2em'
 
           }}
@@ -334,7 +289,6 @@ export default function NovoServico() {
 
 
               </Modal>
-
               <Modal
       basic
       onClose={() => setOp2(false)}
@@ -360,7 +314,7 @@ export default function NovoServico() {
           <Icon name='checkmark' /> Sim
         </Button>
       </Modal.Actions>
-    </Modal>
+             </Modal>
                
                 </Card.Content>
                 
