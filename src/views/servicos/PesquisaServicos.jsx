@@ -52,21 +52,30 @@ export default function CategoriasPesquisa() {
     ])
     const [Produto] = useState([
         {
-          codigo: "01",
-          Foto: "https://get.pxhere.com/photo/table-celebration-decoration-meal-food-carnival-colorful-dessert-deco-festival-children-party-event-birthday-table-decoration-children's-birthday-invitation-guests-carnival-party-fasnet-shrove-monday-themed-party-partyaritkel-invited-1287302.jpg",
-          Titulo: "Buffet",
-          Descricao: "Voce vai adorar"
-    
-        },  {
+            codigo: "01",
+            Foto: "https://get.pxhere.com/photo/table-celebration-decoration-meal-food-carnival-colorful-dessert-deco-festival-children-party-event-birthday-table-decoration-children's-birthday-invitation-guests-carnival-party-fasnet-shrove-monday-themed-party-partyaritkel-invited-1287302.jpg",
+            Titulo: "Buffet",
+            Descricao: "Voce vai adorar",
+            valor: "R$ 5.000"
+
+        }, {
             codigo: "02",
             Foto: "https://get.pxhere.com/photo/sweet-meal-food-carnival-color-colorful-cupcake-baking-dessert-delicious-cake-brand-pastries-face-children-icing-party-funny-candy-canape-faces-clowns-sweetness-treat-confectionery-delicacy-small-cakes-hand-made-sweets-children's-birthday-americans-carnival-party-fasnet-petit-four-clowngesichter-907612.jpg",
             Titulo: "Decoração",
-            Descricao: "Faço produtos lindos para meus Clientes"
-      
-          }
+            Descricao: "Faço produtos lindos para meus Clientes",
+            valor: "R$ 5.000"
+
+        }, {
+            codigo: "02",
+            Foto: "https://get.pxhere.com/photo/sweet-meal-food-carnival-color-colorful-cupcake-baking-dessert-delicious-cake-brand-pastries-face-children-icing-party-funny-candy-canape-faces-clowns-sweetness-treat-confectionery-delicacy-small-cakes-hand-made-sweets-children's-birthday-americans-carnival-party-fasnet-petit-four-clowngesichter-907612.jpg",
+            Titulo: "Decoração",
+            Descricao: "Faço produtos lindos para meus Clientes",
+            valor: "R$ 5.000"
+
+        }
 
     ])
-    
+
     const [Fornecedor] = useState([
         {
             id: "01",
@@ -76,7 +85,7 @@ export default function CategoriasPesquisa() {
             Email: "PedroH@Gmail.com.br",
             NomeDaEmpresa: "Meraki Celebrações",
             regiao: 'Vista Alegre',
-            Telefone:'(81) 92772-2594'
+            Telefone: '(81) 92772-2594'
 
         }, {
             id: "02",
@@ -86,7 +95,7 @@ export default function CategoriasPesquisa() {
             Email: "Gabel@Gmail.com.br",
             NomeDaEmpresa: "Modelo Meraki",
             regiao: 'Alagoas',
-            Telefone:'(81) 9040-4598'
+            Telefone: '(81) 9040-4598'
 
         }, {
             id: "03",
@@ -95,7 +104,7 @@ export default function CategoriasPesquisa() {
             Apelido: "Linda",
             Email: "Linda@Gmail.com.br",
             NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife',Telefone:'(81) 95562-2553'
+            Regiao: 'Recife', Telefone: '(81) 95562-2553'
 
         }
 
@@ -103,49 +112,49 @@ export default function CategoriasPesquisa() {
     return (
         <html className='pesquisa_servicos'>
 
-            <head style={{ display: 'flex', flexDirection: 'row'}}>
+            <head style={{ display: 'flex', flexDirection: 'row' }}>
 
 
-                <div style={{ marginTop: '7px',marginRight:"70%"}} class="ui secondary menu">
+                <div style={{ marginTop: '7px', marginRight: "70%" }} class="ui secondary menu">
                     <div class="right menu">
                         <div class="item">
                             <div class="ui icon input">
                                 <input type="text" placeholder="Search..." /><i aria-hidden="true" class="search icon"></i></div></div><a class="item"></a></div>
                 </div>
 
-                <div style={{marginleft:"auto"}}> 
-            <Menu >
-                    <Dropdown text='Região' multiple icon='filter'>
-                        <Dropdown.Menu>
-                            <Dropdown.Menu scrolling>
-                                {Categorias.map(Categorias => (
-                                    <Dropdown.Item
-                                        key={Categorias} {...Categorias}
-                                    />
+                <div style={{ marginleft: "auto" }}>
+                    <Menu >
+                        <Dropdown text='Região' multiple icon='filter'>
+                            <Dropdown.Menu>
+                                <Dropdown.Menu scrolling>
+                                    {Categorias.map(Categorias => (
+                                        <Dropdown.Item
+                                            key={Categorias} {...Categorias}
+                                        />
 
-                                ))}
+                                    ))}
 
+                                </Dropdown.Menu>
                             </Dropdown.Menu>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Menu>
+                        </Dropdown>
+                    </Menu>
 
 
-                <Menu >
-                    <Dropdown text='Categoria' multiple icon='filter'>
-                        <Dropdown.Menu>
-                            <Dropdown.Menu scrolling>
-                                {Categorias.map(Categorias => (
-                                    <Dropdown.Item
-                                        key={Categorias} {...Categorias}
-                                    />
+                    <Menu >
+                        <Dropdown text='Categoria' multiple icon='filter'>
+                            <Dropdown.Menu>
+                                <Dropdown.Menu scrolling>
+                                    {Categorias.map(Categorias => (
+                                        <Dropdown.Item
+                                            key={Categorias} {...Categorias}
+                                        />
 
-                                ))}
+                                    ))}
 
+                                </Dropdown.Menu>
                             </Dropdown.Menu>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Menu>
+                        </Dropdown>
+                    </Menu>
                 </div>
 
             </head>
@@ -160,61 +169,78 @@ export default function CategoriasPesquisa() {
                             </Card.Meta>
                             <Card.Description>
                                 <h3>Contato</h3>
-                            {Fornecedor.Telefone}
+                                {Fornecedor.Telefone}
                             </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
                             <a>
-                                <Icon name='user' />
-                                <Rating icon='star' defaultRating={2} maxRating={5} />
+                                <Icon name='like' />
+                                <Rating icon='star' defaultRating={3} maxRating={5} />
                             </a>
                         </Card.Content>
 
-                        
-                        <Modal style={{
-            display: 'flex',
-         
-    
-            backgroundColor: '#4F4F4F',
-            marginleft: '2em'
 
-          }}
-          
-            open={open}
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            basic
-            inverted
-            size='small'
-            trigger={<Button color='blue'>Ver Serviços</Button>}
-            > 
-            {Produto.map(Produto => (
-          
-            <Grid
-            style={{marginTop:"4em"}}>
-                 
-            <Grid.Column width={9}>
-                <h2>{Produto.Titulo}</h2>
-                <p>Esse é um dos servições que este fornecedor Ofereçe.</p>
-            </Grid.Column>
-            <Grid.Column width={9}>
-              <Image src={Produto.Foto} />
-            </Grid.Column>
-            <Grid.Column style={{marginTop:'',marginRight:"4em"}} width={6}>
-                <h1>Descrição do Serviço </h1>
-              <h3>{Produto.Descricao}.</h3>
-              
-            </Grid.Column>
-          </Grid>
-          
-          ))}
-          </Modal>
+                        <Modal style={{
+                            marginleft: '2em'
+                        }}
+
+                            open={open}
+                            onClose={() => setOpen(false)}
+                            onOpen={() => setOpen(true)}
+                            basic
+                            inverted
+                            size='small'
+                            trigger={<Button color='blue'>Ver Serviços</Button>}
+                        >
+                            {Produto.map(Produto => (
+
+                                <Grid >
+                                    <div className='grid_modalServicos'>
+                                        <div>
+                                            <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
+                                                <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
+                                            </Grid.Column>
+                                        </div>
+
+                                        <div>
+                                            <Grid.Column align="center" >
+                                                <h2>{Produto.Titulo}</h2>
+                                                <hr style={{ marginTop: '-1.4em' }} />
+
+                                            </Grid.Column>
+
+
+                                            <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+                                                <h1>Descrição do Serviço </h1>
+                                                <hr style={{ marginTop: '-1.4em' }} />
+
+                                                <h3>{Produto.Descricao}.</h3>
+                                            </Grid.Column>
+
+                                            <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+
+
+                                                <hr style={{ marginTop: '-1.4em' }} />
+                                                <b> Valor :</b>
+                                                <h3>{Produto.valor}.</h3>
+                                            </Grid.Column>
+                                            <Button style={{ marginTop: '8em', marginLeft: '18em' }} color='' >Comprar</Button>
+
+                                        </div>
+                                    </div>
+
+                                </Grid>
+
+
+                            ))}
+
+                        </Modal>
                     </Card>
 
                 ))}
 
             </body>
-        </html>
+        </html >
 
 
 

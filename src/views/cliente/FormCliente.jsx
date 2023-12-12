@@ -7,7 +7,7 @@ import { Button, Container, Form, Icon } from 'semantic-ui-react';
 export default function FormCliente() {
     return (
 
-        <div class="For_Cliente">
+        <div class="for_cliente">
             <div style={{ marginTop: '4%' }}>
 
                 <Container  >

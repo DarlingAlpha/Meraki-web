@@ -21,7 +21,7 @@ export default function CadaFornecedor() {
 
         <html className='html_fornecedor'>
 
-            <div className="For_Fornecedor">
+            <div className="for_fornecedor">
                 <div style={{ marginTop: '34%' }}>
 
                     <Container  >

@@ -31,7 +31,7 @@ export default function CategoriasPesquisa() {
             <Menu.Item>
 
                 <a href="NovoServico"><Icon color='green' name='leaf' />
-                    <p>Cadastrar Servico</p></a>
+                    <p>Cadastrar Serviço</p></a>
 
             </Menu.Item>
 
