@@ -7,9 +7,8 @@ export default function CategoriasPesquisa() {
 
     return (
         <Menu className='Menu_perfil'
-            style={{ display: 'flex', justifyContent: 'flex-end' }}
         >
-            <div style={{}}>
+            <div>
                 <img src={logo} alt="Logo" style={{ width: '70px', height: '69px' }}></img>
             </div>
             <Menu.Item >

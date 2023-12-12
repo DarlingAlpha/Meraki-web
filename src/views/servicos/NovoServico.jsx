@@ -39,14 +39,39 @@ export default function NovoServico() {
       Titulo: "Decoração",
       Descricao: "Descrições"
 
-    }
-    , {
+    },{
       codigo: "01",
       Foto: "https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg",
-      Titulo: "",
+      Titulo: "Decoração",
+      Descricao: "Descrições"
+
+    },{
+      codigo: "01",
+      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
+      Titulo: "Decoração",
+      Descricao: "Descrições"
+
+    },{
+      codigo: "01",
+      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
+      Titulo: "Decoração",
+      Descricao: "Descrições"
+
+    },{
+      codigo: "01",
+      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
+      Titulo: "Decoração",
+      Descricao: "Descrições"
+
+    },{
+      codigo: "01",
+      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
+      Titulo: "Decoração",
       Descricao: "Descrições"
 
     }
+    
+    
 
   ])
 
@@ -54,7 +79,7 @@ export default function NovoServico() {
     {
       id: "01",
       Foto: "https://img.freepik.com/vetores-gratis/logotipo-elegante-dourado-com-moldura_52683-13462.jpg?w=740&t=st=1702319452~exp=1702320052~hmac=23b5c082ae762a3d67f59f71b6d9923e271804dc4c6ae951a86043ac97d9f282",
-      Nome: "Gabriel Gomes Lourenço",
+      Nome: "Gabriel Gomes Lourenço ",
 
     }
 
@@ -65,15 +90,13 @@ export default function NovoServico() {
   return (
 
     <html  className='novo_servico' >
-      <div>
+      <div >
       {Fornecedor.map(Fornecedor => (
             <div key={Fornecedor.id}>
               {/* Falta Imagem */}
               <Image circular
-                src={Fornecedor.Foto} style={{ width: '30em', height: '30em' }}/>
-              
-
-              <h1>
+                src={Fornecedor.Foto} style={{ width: '30em', height: '30em', marginLeft:"40%",marginRight:'60%'  }}/>
+              <h1 style={{backgroundColor:'#dccfca87',color:"black"}}>
                 {Fornecedor.Nome}
               </h1>
               <hr />
@@ -83,13 +106,7 @@ export default function NovoServico() {
           </div>
  
 
-      <body   style={{
-        height:'50em',
-        marginTop: '1%',
-        textAlign: 'center'
-
-
-      }}>
+      <body className='Body_novoServico' >
          
      
       <Modal style={{
@@ -97,7 +114,6 @@ export default function NovoServico() {
             width: '40em',
             height: '44em',
             marginleft: '2em'
-
           }}
             open={op}
             onClose={() => setOp(false)}
@@ -117,8 +133,6 @@ export default function NovoServico() {
               <h1>Serviço 01</h1>
               <Form.Group Widths='equal'
                 style={{
-
-                  marginTop: '1%',
                   marginLeft: '1.2em',
                   marginRight: '-1em',
                   textAlign: 'center'
@@ -190,7 +204,7 @@ export default function NovoServico() {
               <Card>
                 <Image
                   floated='right'
-                  style={{ width: '19em', height: '15em' }}
+                  style={{ width: '19em', height: '20em' }}
                   src={Produto.Foto}
                   />
                 <Card.Content>
@@ -302,9 +316,9 @@ export default function NovoServico() {
         Deletar Serviço
       </Header>
       <Modal.Content>
-        <p>
-        Ao confirmar não tera mais volta, deseja mesmo deletar esse serviço?
-        </p>
+        <h3>
+        Deseja mesmo excluir este serviço?
+        </h3>
       </Modal.Content>
       <Modal.Actions>
         <Button basic color='red' inverted onClick={() => setOp2(false)}>

@@ -103,22 +103,24 @@ export default function CategoriasPesquisa() {
     return (
         <html className='pesquisa_servicos'>
 
-            <head style={{ display: 'flex', flexDirection: 'row-reverse'}}>
+            <head style={{ display: 'flex', flexDirection: 'row'}}>
 
 
-                <div style={{ marginTop: '7px' }} class="ui secondary menu">
+                <div style={{ marginTop: '7px',marginRight:"70%"}} class="ui secondary menu">
                     <div class="right menu">
                         <div class="item">
                             <div class="ui icon input">
                                 <input type="text" placeholder="Search..." /><i aria-hidden="true" class="search icon"></i></div></div><a class="item"></a></div>
                 </div>
-                <Menu >
+
+                <div style={{marginleft:"auto"}}> 
+            <Menu >
                     <Dropdown text='Região' multiple icon='filter'>
                         <Dropdown.Menu>
                             <Dropdown.Menu scrolling>
                                 {Categorias.map(Categorias => (
                                     <Dropdown.Item
-                                        key={Categorias.Regiao} {...Categorias}
+                                        key={Categorias} {...Categorias}
                                     />
 
                                 ))}
@@ -130,12 +132,12 @@ export default function CategoriasPesquisa() {
 
 
                 <Menu >
-                    <Dropdown text='Categorias' multiple icon='filter'>
+                    <Dropdown text='Categoria' multiple icon='filter'>
                         <Dropdown.Menu>
                             <Dropdown.Menu scrolling>
                                 {Categorias.map(Categorias => (
                                     <Dropdown.Item
-                                        key={Categorias.Regiao} {...Categorias}
+                                        key={Categorias} {...Categorias}
                                     />
 
                                 ))}
@@ -144,7 +146,7 @@ export default function CategoriasPesquisa() {
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu>
-
+                </div>
 
             </head>
             <body style={{ marginTop: '6em', marginLeft: '6em' }} >

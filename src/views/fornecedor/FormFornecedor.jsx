@@ -141,7 +141,7 @@ export default function CadaFornecedor() {
                                     floated='right'
                                 >
                                     <Icon name='check' />
-                                    <Link to={'/PerfilFornecedor'} style={{ color: 'black' }}>Confirmar</Link>
+                                    <Link to={'/'} style={{ color: 'black' }}>Confirmar</Link>
                                 </Button>
 
                             </div>

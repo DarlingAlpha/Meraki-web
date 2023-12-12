@@ -120,7 +120,7 @@ export default function FormCliente() {
                                 floated='right'
                             >
                                 <Icon name='check' />
-                                <Link to={'/PerfilCliente'}style={{color:'black'}}>Salvar</Link>
+                                <Link to={'/'}style={{color:'black'}}>Salvar</Link>
 
                             </Button>
 
