@@ -15,8 +15,9 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url(https://rincondelemprendedor.es/wp-content/uploads/2019/04/party-51.jpg);
     background-size: cover;
+    background-image: url(https://c.pxhere.com/images/c9/3e/decea84b528252716573363f25f8-1443553.jpg!d);
+    background-color: #4828288a;
 }
 
 .Body_novoServico {
@@ -27,7 +28,7 @@ html {
     text-align: center;
     overflow-x: scroll;
     overflow-y: hidden;
-    background-color: #5f4949a2;
+    background-color: #dccacaa2;
 }
 
 .Body_novoServico::-webkit-scrollbar {
@@ -70,7 +71,7 @@ html {
 .Form_Servico {
     width: 100%;
     height: 28em;
-    background-color: #201c194f
+    background-color: #2b242481
 }
 
 /*card-cliente*/
