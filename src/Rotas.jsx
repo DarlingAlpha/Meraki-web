@@ -11,7 +11,6 @@ import LogUsuarios from './views/home/LogUsuarios';
 import PesquisaServicos from './views/servicos/PesquisaServicos';
 
 import NovoServico from './views/servicos/NovoServico';
-import Servicos from './views/servicos/Servicos';
 
 
 
@@ -28,7 +27,6 @@ function Rotas() {
                 <Route path="/FormFornecedor" element={<FormFornecedor />} />
 
                 <Route path="/LogUsuarios" element={<LogUsuarios />} />
-                <Route path="/Servicos" element={<Servicos />} />
                 <Route path="/NovoServico" element={<NovoServico />} />
 
 

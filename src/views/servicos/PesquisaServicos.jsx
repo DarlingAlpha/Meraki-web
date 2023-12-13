@@ -50,6 +50,19 @@ export default function CategoriasPesquisa() {
 
         }
     ])
+    // simulador de dados do banco de dado
+    const [Cliente] = useState([
+        {
+            id: "01",
+            Foto: "https://upload.wikimedia.org/wikipedia/commons/1/14/Foto-de-Perfil-en-WhatsApp-696x364.jpg",
+            Nome: "Mariana Barros do Barro ",
+            Email: "Josel@Gmail.com.br",
+            Regiao: 'Mato Grosso',
+            Telefone: '(81)92322-3131'
+
+        }
+
+    ])
     const [Produto] = useState([
         {
             codigo: "01",
@@ -190,49 +203,95 @@ export default function CategoriasPesquisa() {
                             basic
                             inverted
                             size='small'
-                            trigger={<Button color='blue'>Ver Serviços</Button>}
+                            trigger={<Button color='blue'>Ver Mais</Button>}
                         >
-                            {Produto.map(Produto => (
+                            <div className='perfil_ModelServiços'>
+                                {Cliente.map(Cliente => (
 
-                                <Grid >
-                                    <div className='grid_modalServicos'>
-                                        <div>
-                                            <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
-                                                <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
-                                            </Grid.Column>
-                                        </div>
+                                    <div key={Cliente.id} style={{ backgroundColor: '' }}>
+                                        {/* Falta Imagem */}
+                                        <Image circular
+                                            src={Cliente.Foto} style={{ width: '22em', height: '21em' }}>
 
-                                        <div>
-                                            <Grid.Column align="center" >
-                                                <h2>{Produto.Titulo}</h2>
-                                                <hr style={{ marginTop: '-1.4em' }} />
-
-                                            </Grid.Column>
-
-
-                                            <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
-                                                <h1>Descrição do Serviço </h1>
-                                                <hr style={{ marginTop: '-1.4em' }} />
-
-                                                <h3>{Produto.Descricao}.</h3>
-                                            </Grid.Column>
-
-                                            <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
-
-
-                                                <hr style={{ marginTop: '-1.4em' }} />
-                                                <b> Valor :</b>
-                                                <h3>{Produto.valor}.</h3>
-                                            </Grid.Column>
-                                            <Button style={{ marginTop: '8em', marginLeft: '18em' }} color='' >Comprar</Button>
-
+                                        </Image>
+                                        {/* Nome do fornecedor */}
+                                        <div  >
+                                            {Cliente.Nome}
                                         </div>
                                     </div>
+                                ))
+                                }
 
-                                </Grid>
+                                <hr />
+                                <div className='div_perfil' style={{
+                                   
+                                }}>
+
+                                    {Cliente.map(Cliente => (
+                                        <div>
+                                            <h1 align="center" > Meus dados</h1>
+                                            <h2>{Cliente.Nome}</h2>
+                                            <hr style={{ marginTop: '-1.2em' }} />
+                                            <h3>Email :</h3><p>{Cliente.Email}</p>
+
+                                            <h3>Região :</h3><p>{Cliente.Regiao}</p>
+
+                                            <h3>Telefone para contato :</h3><p>{Cliente.Telefone}</p>
+
+                                        </div>
+
+                                    ))
+                                    }
+                                </div>
 
 
-                            ))}
+
+
+
+                            </div>
+                            {
+                                Produto.map(Produto => (
+
+                                    <Grid >
+                                        <div className='grid_modalServicos'>
+                                            <div>
+                                                <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
+                                                    <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
+                                                </Grid.Column>
+                                            </div>
+
+                                            <div>
+                                                <Grid.Column align="center" >
+                                                    <h2>{Produto.Titulo}</h2>
+                                                    <hr style={{ marginTop: '-1.4em' }} />
+
+                                                </Grid.Column>
+
+
+                                                <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+                                                    <h1>Descrição do Serviço </h1>
+                                                    <hr style={{ marginTop: '-1.4em' }} />
+
+                                                    <h3>{Produto.Descricao}.</h3>
+                                                </Grid.Column>
+
+                                                <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+
+
+                                                    <hr style={{ marginTop: '-1.4em' }} />
+                                                    <b> Valor :</b>
+                                                    <h3>{Produto.valor}.</h3>
+                                                </Grid.Column>
+
+
+                                            </div>
+                                        </div>
+
+                                    </Grid>
+
+
+                                ))
+                            }
 
                         </Modal>
                     </Card>

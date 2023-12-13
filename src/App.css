@@ -49,6 +49,18 @@ html {
     background-color: #dccfca87;
 }
 
+.perfil_ModelServiços {
+    display: flex;
+    background-color: #b08c8c;
+}
+
+.div_perfil {
+    display: flex;
+    width: 23.8em;
+    color: #652f2f;
+    background-color: #9a3e3e5b;
+}
+
 .grid_modalServicos {
     background-color: #93717186;
     width: 100%;
