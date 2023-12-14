@@ -90,12 +90,12 @@ export default function NovoServico() {
   return (
 
     <html className='novo_servico' >
-<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
- 
-   <h1 >Meus Serviços</h1>
-   <h2 align='center' style={{ width:'20em',height:'10em'}}>Em cada Serviço, Tecemos juntos a história o sucesso. 
-   Na Meraki, cada detalhe importa, pois somos artesãos do êxito, construindo juntos o caminho para o triunfo.</h2>
-    </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+        <h1 >Meus Serviços</h1>
+        <h2 align='center' style={{ width: '20em', height: '10em' }}>Em cada Serviço, Tecemos juntos a história o sucesso.
+          Na Meraki, cada detalhe importa, pois somos artesãos do êxito, construindo juntos o caminho para o triunfo.</h2>
+      </div>
       <body className='Body_novoServico' >
 
 
@@ -104,7 +104,7 @@ export default function NovoServico() {
           width: '40em',
           height: '44em',
           marginleft: '2em'
-          
+
         }}
           open={op}
           onClose={() => setOp(false)}
@@ -123,7 +123,7 @@ export default function NovoServico() {
             <Form className='Form_Servico'>
               <h1>Meu serviço</h1>
               <Form.Group Widths='equal'
-        
+
                 style={{
                   marginLeft: '1.2em',
                   marginRight: '-1em',
@@ -142,7 +142,7 @@ export default function NovoServico() {
 
 
                 <Form.Input
-               
+
                   fluid
                   label="codigo"
                   width={5}
@@ -193,20 +193,22 @@ export default function NovoServico() {
               display: 'flex',
               marginTop: '2em'
             }}>
-            <Card.Group className='cards_servico' >
+            <Card.Group >
               <Card>
                 <Image
                   floated='right'
                   style={{ width: '19em', height: '20em' }}
                   src={Produto.Foto}
                 />
-              
+
                 <Card.Content>
 
                   <Card.Header>{Produto.Titulo}</Card.Header>
                   <hr />
-                  <Card.Meta><p style={{ FontSize: 'x-larg' }}>Codigo:</p>{Produto.codigo}</Card.Meta>
-                
+                  <Card.Meta>
+                    <p style={{ FontSize: 'x-larg' }}>
+                      Codigo:</p>{Produto.codigo}
+                  </Card.Meta>
                   <Card.Description>
                     {Produto.Descricao}
                   </Card.Description>
@@ -274,7 +276,7 @@ export default function NovoServico() {
                             fluid
                             label="valor"
                             width={5}
-                            
+
                             placeholder='Qual o Valor do serviço?'
                           >
                             <InputMask

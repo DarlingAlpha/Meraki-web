@@ -19,9 +19,9 @@ export default function CadaFornecedor() {
     // }
     return (
 
-        <html className='html_fornecedor'>
+        <html className='html_formUsu'>
 
-            <div className="for_fornecedor">
+            <div className="for_formUsu">
                 <div style={{ marginTop: '34%' }}>
 
                     <Container  >

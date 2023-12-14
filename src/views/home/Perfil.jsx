@@ -28,10 +28,9 @@ export default function PerfilCliente() {
   return (
     <html
       style={{
-
+        marginBottom: '11.7%',
         marginTop: '1%',
         display: 'flex'
-
       }}>
       <Header as='h2'  >
         {Cliente.map(Cliente => (
@@ -186,38 +185,6 @@ export default function PerfilCliente() {
 
             </Form.Group>
 
-            <Form.Group
-
-              style={{
-
-                marginTop: '1%',
-                marginLeft: '1.2em',
-                marginRight: '-1em',
-                textAlign: 'center'
-
-              }}>
-              <Form.Input
-                style={{
-                  with: '30em',
-                  marginTop: '1%',
-                  marginLeft: '2%',
-                  width: '20em'
-
-                }}
-                width={15}
-                label='Apelido'
-                className="for_for"
-              >
-
-                <InputMask
-
-                  placeholder={Cliente.Apelido}
-
-                />
-
-              </Form.Input>
-
-            </Form.Group>
 
 
             <Form.Group

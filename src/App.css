@@ -45,6 +45,16 @@ html {
     background-color: #4a363656;
 }
 
+.Body_servicoslist {
+    justify-content: space-between;
+    display: flex;
+    margin-top: -1%;
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color: #938b8ba2;
+}
+
 .pesquisa_servicos {
     background-color: #dccfca87;
 }
@@ -133,7 +143,7 @@ html {
 
 .perfil_body {
     width: 100%;
-    height: auto;
+    height: 100%;
     background-color: #f8f7f795;
 }
 
@@ -143,7 +153,7 @@ html {
     font-family: 'Georgia', 'Georgia', sans-serif;
 }
 
-.html_fornecedor {
+.html_formUsu {
     display: flex;
     align-items: center;
     background-color: #e8d9d962;
@@ -151,7 +161,7 @@ html {
 
 }
 
-.for_fornecedor {
+.for_formUsu {
     width: 40em;
     margin-left: 34.7%;
     color: #8a340298;
@@ -173,13 +183,13 @@ html {
 
 
 .for_cliente {
+
     align-items: center;
-    width: 40em;
     margin-top: 10%;
     margin-left: 34.7%;
-    margin-right: 40%;
+    margin-right: 34%;
     color: #8a340298;
-    background-color: #d8779c1a;
+    background-color: #623b4a51;
     text-align: center;
 
 }
@@ -202,6 +212,19 @@ html {
     background-size: cover;
 }
 
+.footer {
+    display: flex;
+    justify-content: end;
+    font-size: x-large;
+    background-color: #e5e4e4;
+}
+
+.instagram {
+    width: 50em;
+    margin-left: 33.5em;
+
+}
+
 /*Menu txt*/
 .menu-div {
     display: flex;
@@ -217,7 +240,7 @@ html {
     border: solid #d3b7ab98;
     background-color: #55250a98;
     color: #f3a6a6;
-    ;
+
 
 }
 

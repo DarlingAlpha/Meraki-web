@@ -119,6 +119,51 @@ export default function CategoriasPesquisa() {
             NomeDaEmpresa: "Linda Festas",
             Regiao: 'Recife', Telefone: '(81) 95562-2553'
 
+        }, {
+            id: "03",
+            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
+            Fornecedor: "Jose",
+            Apelido: "Linda",
+            Email: "Linda@Gmail.com.br",
+            NomeDaEmpresa: "Linda Festas",
+            Regiao: 'Recife', Telefone: '(81) 95562-2553'
+
+        }, {
+            id: "03",
+            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
+            Fornecedor: "Jose",
+            Apelido: "Linda",
+            Email: "Linda@Gmail.com.br",
+            NomeDaEmpresa: "Linda Festas",
+            Regiao: 'Recife', Telefone: '(81) 95562-2553'
+
+        }, {
+            id: "03",
+            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
+            Fornecedor: "Jose",
+            Apelido: "Linda",
+            Email: "Linda@Gmail.com.br",
+            NomeDaEmpresa: "Linda Festas",
+            Regiao: 'Recife', Telefone: '(81) 95562-2553'
+
+        }, {
+            id: "03",
+            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
+            Fornecedor: "Jose",
+            Apelido: "Linda",
+            Email: "Linda@Gmail.com.br",
+            NomeDaEmpresa: "Linda Festas",
+            Regiao: 'Recife', Telefone: '(81) 95562-2553'
+
+        }, {
+            id: "03",
+            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
+            Fornecedor: "Jose",
+            Apelido: "Linda",
+            Email: "Linda@Gmail.com.br",
+            NomeDaEmpresa: "Linda Festas",
+            Regiao: 'Recife', Telefone: '(81) 95562-2553'
+
         }
 
     ]);
@@ -171,132 +216,140 @@ export default function CategoriasPesquisa() {
                 </div>
 
             </head>
-            <body style={{ marginTop: '6em', marginLeft: '6em' }} >
+            <body className='Body_servicoslist' style={{ marginTop: '5em' }} >
+
                 {Fornecedor.map(Fornecedor => (
-                    <Card>
-                        <Image src={Fornecedor.Foto} style={{ width: '21em', height: '15em' }} car />
-                        <Card.Content>
-                            <Card.Header>{Fornecedor.NomeDaEmpresa}</Card.Header>
-                            <Card.Meta>
-                                <span className='data'>2023</span>
-                            </Card.Meta>
-                            <Card.Description>
-                                <h3>Contato:</h3>
-                                <a href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
-                            </Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
-                            <a>
-                                <Icon name='like' />
-                                <Rating icon='star' defaultRating={3} maxRating={5} />
-                            </a>
-                        </Card.Content>
+                    <Card.Group >
+                        <Card>
+                            <Image
+                                style={{ width: '21em', height: '15em' }}
+                                src={Fornecedor.Foto}
+                            />
+                            <Card.Content>
+                                <Card.Header>{Fornecedor.NomeDaEmpresa}</Card.Header>
+                                <Card.Meta>
+                                    <span className='data'>2023</span>
+                                </Card.Meta>
+                                <Card.Description>
+                                    <h3>Contato:</h3>
+                                    <a href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
+                                </Card.Description>
+                            </Card.Content>
+                            <Card.Content extra>
+                                <a>
+                                    <Icon name='like' />
+                                    <Rating icon='star' defaultRating={3} maxRating={5} />
+                                </a>
+                            </Card.Content>
 
 
-                        <Modal style={{
-                            marginleft: '2em'
-                        }}
+                            <Modal style={{
+                                marginleft: '2em'
+                            }}
 
-                            open={open}
-                            onClose={() => setOpen(false)}
-                            onOpen={() => setOpen(true)}
-                            basic
-                            inverted
-                            size='small'
-                            trigger={<Button color='blue'>Ver Mais</Button>}
-                        >
-                            <div className='perfil_ModelServiços'>
-                                {Cliente.map(Cliente => (
-
-                                    <div key={Cliente.id} style={{ backgroundColor: '' }}>
-                                        {/* Falta Imagem */}
-                                        <Image circular
-                                            src={Cliente.Foto} style={{ width: '22em', height: '21em' }}>
-
-                                        </Image>
-                                        {/* Nome do fornecedor */}
-                                        <div  >
-                                            {Cliente.Nome}
-                                        </div>
-                                    </div>
-                                ))
-                                }
-
-                                <hr />
-                                <div className='div_perfil' style={{
-                                   
-                                }}>
-
+                                open={open}
+                                onClose={() => setOpen(false)}
+                                onOpen={() => setOpen(true)}
+                                basic
+                                inverted
+                                size='small'
+                                trigger={<Button color='blue'>Ver Mais</Button>}
+                            >
+                                <div className='perfil_ModelServiços'>
                                     {Cliente.map(Cliente => (
-                                        <div>
-                                            <h1 align="center" > Meus dados</h1>
-                                            <h2>{Cliente.Nome}</h2>
-                                            <hr style={{ marginTop: '-1.2em' }} />
-                                            <h3>Email :</h3><a  href="mailto:Linda@Gmail.com.br" target='_blank'>{Fornecedor.Email}</a>
 
-                                            <h3>Região :</h3><p>{Cliente.Regiao}</p>
+                                        <div key={Cliente.id} style={{ backgroundColor: '' }}>
+                                            {/* Falta Imagem */}
+                                            <Image circular
+                                                src={Cliente.Foto} style={{ width: '22em', height: '21em' }}>
 
-                                            <h3  >Telefone para contato :</h3>
-                                            <a  href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
+                                            </Image>
+                                            {/* Nome do fornecedor */}
+                                            <div  >
+                                                {Cliente.Nome}
+                                            </div>
                                         </div>
-
                                     ))
                                     }
+
+                                    <hr />
+                                    <div className='div_perfil' style={{
+
+                                    }}>
+
+                                        {Cliente.map(Cliente => (
+                                            <div>
+                                                <h1 align="center" > Meus dados</h1>
+                                                <h2>{Cliente.Nome}</h2>
+                                                <hr style={{ marginTop: '-1.2em' }} />
+                                                <h3>Email :</h3>
+                                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Linda@Gmail.com.br" target='_blank'>{Fornecedor.Email}</a>
+
+                                                <h3>Região :</h3><p>{Cliente.Regiao}</p>
+
+                                                <h3  >Telefone para contato :</h3>
+                                                <a href="https://wa.me/" target='_blank'>{Fornecedor.Telefone}</a>
+                                            </div>
+
+                                        ))
+                                        }
+                                    </div>
+
+
+
+
+
                                 </div>
+                                {
+                                    Produto.map(Produto => (
+
+                                        <Grid >
+                                            <div className='grid_modalServicos'>
+                                                <div>
+                                                    <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
+                                                        <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
+                                                    </Grid.Column>
+                                                </div>
+
+                                                <div>
+                                                    <Grid.Column align="center" >
+                                                        <h2>{Produto.Titulo}</h2>
+                                                        <hr style={{ marginTop: '-1.4em' }} />
+
+                                                    </Grid.Column>
 
 
+                                                    <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+                                                        <h1>Descrição do Serviço </h1>
+                                                        <hr style={{ marginTop: '-1.4em' }} />
+
+                                                        <h3>{Produto.Descricao}.</h3>
+                                                    </Grid.Column>
+
+                                                    <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
 
 
+                                                        <hr style={{ marginTop: '-1.4em' }} />
+                                                        <b> Valor :</b>
+                                                        <h3>{Produto.valor}.</h3>
+                                                    </Grid.Column>
 
-                            </div>
-                            {
-                                Produto.map(Produto => (
 
-                                    <Grid >
-                                        <div className='grid_modalServicos'>
-                                            <div>
-                                                <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
-                                                    <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
-                                                </Grid.Column>
+                                                </div>
                                             </div>
 
-                                            <div>
-                                                <Grid.Column align="center" >
-                                                    <h2>{Produto.Titulo}</h2>
-                                                    <hr style={{ marginTop: '-1.4em' }} />
-
-                                                </Grid.Column>
+                                        </Grid>
 
 
-                                                <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
-                                                    <h1>Descrição do Serviço </h1>
-                                                    <hr style={{ marginTop: '-1.4em' }} />
+                                    ))
+                                }
 
-                                                    <h3>{Produto.Descricao}.</h3>
-                                                </Grid.Column>
-
-                                                <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
-
-
-                                                    <hr style={{ marginTop: '-1.4em' }} />
-                                                    <b> Valor :</b>
-                                                    <h3>{Produto.valor}.</h3>
-                                                </Grid.Column>
-
-
-                                            </div>
-                                        </div>
-
-                                    </Grid>
-
-
-                                ))
-                            }
-
-                        </Modal>
-                    </Card>
+                            </Modal>
+                        </Card>
+                    </Card.Group>
 
                 ))}
+
 
             </body>
         </html >
