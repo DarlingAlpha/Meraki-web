@@ -181,8 +181,8 @@ export default function CategoriasPesquisa() {
                                 <span className='data'>2023</span>
                             </Card.Meta>
                             <Card.Description>
-                                <h3>Contato</h3>
-                                {Fornecedor.Telefone}
+                                <h3>Contato:</h3>
+                                <a href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
                             </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
@@ -236,8 +236,9 @@ export default function CategoriasPesquisa() {
 
                                             <h3>Região :</h3><p>{Cliente.Regiao}</p>
 
-                                            <h3>Telefone para contato :</h3><p>{Cliente.Telefone}</p>
-
+                                            <h3  >Telefone para contato :</h3>
+                                            <a  href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
+                                     
                                         </div>
 
                                     ))
