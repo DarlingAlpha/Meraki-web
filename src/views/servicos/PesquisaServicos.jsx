@@ -232,13 +232,12 @@ export default function CategoriasPesquisa() {
                                             <h1 align="center" > Meus dados</h1>
                                             <h2>{Cliente.Nome}</h2>
                                             <hr style={{ marginTop: '-1.2em' }} />
-                                            <h3>Email :</h3><p>{Cliente.Email}</p>
+                                            <h3>Email :</h3><a  href="mailto:Linda@Gmail.com.br" target='_blank'>{Fornecedor.Email}</a>
 
                                             <h3>Região :</h3><p>{Cliente.Regiao}</p>
 
                                             <h3  >Telefone para contato :</h3>
                                             <a  href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
-                                     
                                         </div>
 
                                     ))
