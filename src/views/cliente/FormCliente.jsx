@@ -1,24 +1,61 @@
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaCliente() {
+    const { state } = useLocation();
+    const [idCliente, setIdcliente] = useState();
     const [nome, setNome] = useState();
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
+    const [telefone, setTelefone] = useState();
 
-    // function File(img) {
-    //     const selecionar = img.target.files[0];
-    //     const imagem = document.getElementById('imagemExibicao');
 
-    //     if (selecionar) {
-    //         //definição do src
-    //         const src = URL.createObjectURL(selecionar);
-    //         imagem.src = src;
-    //     } else {
-    //         // se nada for selecionado
-    //         imagem.src = '';
-    //     }
-    // }
+
+    useEffect(() => {
+        if (state != null && state.id != null) {
+            axios.get("http://localhost:8082/api/cliente/" + state.id)
+                .then((response) => {
+                    setIdcliente(response.data.id)
+                    setNome(response.data.nome)
+                    setEmail(response.data.email)
+                    setSenha(response.data.senha)
+                    setTelefone(response.data.telefone)
+
+                })
+        }
+    }, [state])
+
+    function salvar() {
+        let clienteRequest = {
+            nome: nome,
+            email: email,
+            senha: senha,
+            telefone: telefone,
+
+
+
+        }
+        if (idCliente != null) { //Alteração:
+            axios.put("http://localhost:8082/api/cliente/" + idCliente, clienteRequest)
+
+                .then((response) => { console.log('cliente alterado com sucesso.') })
+                .catch((error) => { console.log('Erro ao alter um cliente.') })
+
+        } else { //Cadastro:
+            axios.post("http://localhost:8082/api/cliente", clienteRequest)
+
+                .then((response) => {
+                    console.log('cliente cadastrado com sucesso.')
+
+
+                })
+
+                .catch((error) => { console.log('Erro ao incluir o cliente.') })
+        }
+    }
     return (
 
         <html className='html_formUsu'>
@@ -35,6 +72,8 @@ export default function CadaCliente() {
                         <div style={{ marginTop: '5%' }}>
 
                             <Form >
+
+
                                 <Form.Group >
 
                                     <Form.Input
@@ -61,6 +100,8 @@ export default function CadaCliente() {
                                         label='Email'
                                         className="for_for"
                                         width={16}
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
 
 
                                     >
@@ -78,28 +119,12 @@ export default function CadaCliente() {
                                         label='senha'
                                         width={16}
                                         className="for_for"
+                                        value={senha}
+                                        onChange={e => setSenha(e.target.value)}
                                     >
-                                        <InputMask
 
-
-                                        />
                                     </Form.Input>
                                 </Form.Group >
-                                <Form.Group >
-
-
-                                    <Form.Input
-                                        fluid
-                                        label='Região'
-                                        width={16}
-                                        className="for_for"
-                                    >
-                                        <InputMask
-
-
-                                        />
-                                    </Form.Input>
-                                </Form.Group>
 
                                 <Form.Group>
                                     <Form.Input
@@ -107,6 +132,8 @@ export default function CadaCliente() {
                                         label='Telefone'
                                         width={16}
                                         className="for_for"
+                                        value={telefone}
+                                        onChange={e => setTelefone(e.target.value)}
                                     >
                                         <InputMask
                                             mask="(99) 9999.9999"
@@ -123,7 +150,7 @@ export default function CadaCliente() {
                             <div style={{ marginTop: '4%' }}>
 
                                 <Button
-
+                                    onClick={() => salvar()}
                                     type="button"
                                     circular
                                     color='brown'
@@ -135,7 +162,7 @@ export default function CadaCliente() {
                                 </Button>
 
                                 <Button
-
+                                    onClick={() => salvar()}
                                     type="button"
                                     circular
                                     color='olive'
