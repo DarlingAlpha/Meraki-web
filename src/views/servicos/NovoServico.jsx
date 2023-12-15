@@ -1,7 +1,32 @@
 import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
 import { Button, Card, Form, Header, Icon, Image, Modal, Segment, TextArea } from 'semantic-ui-react';
+
 export default function NovoServico() {
+  const [imagem, setImagem] = useState();
+
+
+  //botar dentro do axios
+if (idproduto != null) { //Alteração:
+  axios.put("http://localhost:8082/api/produto/" + idproduto, produtoRequest)
+
+      .then((response) => { console.log('produto alterado com sucesso.')})
+      .catch((error) => { console.log('Erro ao alter um produto.') })
+
+} else { //Cadastro:
+  axios.post("http://localhost:8082/api/produto", produtoRequest)
+  
+  .then((response) => { console.log('produto cadastrado com sucesso.')
+
+      let formData= new FormData();
+      formData.append('imagem',imagem);
+      axios.put('http://localhost:8082/api/produto/cadastrarImagem/'+Response.data.id,formData)
+     })
+
+      .catch((error) => { console.log('Erro ao incluir o produto.') })
+}
+
+
 
   const [op, setOp] = React.useState(false)
   const [op1, setOp1] = React.useState(false)
@@ -134,7 +159,8 @@ export default function NovoServico() {
                 <input type="file"
                   name="imagem"
                   accept="image/*"
-                  onChange={File}
+                  value={imagem}
+                  onChange={e => setImagem(e.target.value)}
                 />
 
               </Form.Group >
@@ -232,7 +258,7 @@ export default function NovoServico() {
 
 
                     <Segment >
-                      <Form className='Form_Servico'>
+                      <Form className='Form_Servico' enctype="multipart/form-data">
                         <h1>Meu serviço</h1>
                         <Form.Group Widths='equal'
                           style={{
@@ -244,7 +270,8 @@ export default function NovoServico() {
                           }}>
 
 
-                          <input type="file"
+                          <input 
+                            type="file"
                             name="imagem"
                             accept="image/*"
                             onChange={File}

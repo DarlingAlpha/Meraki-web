@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
 import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaCliente() {
+    const [nome, setNome] = useState();
+    const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
+    const [telefone, setTelefone] = useState();
+
     // function File(img) {
     //     const selecionar = img.target.files[0];
     //     const imagem = document.getElementById('imagemExibicao');
@@ -43,7 +48,8 @@ export default function CadaCliente() {
                                         maxLength="100"
                                         className="for_for"
                                         width={16}
-
+                                        value={nome}
+                                        onChange={e => setNome(e.target.value)}
 
                                     />
                                 </Form.Group>
@@ -58,12 +64,10 @@ export default function CadaCliente() {
                                         label='Email'
                                         className="for_for"
                                         width={16}
+
+                                        onChange={e => setEmail(e.target.value)}
                                     >
-                                        <InputMask
-                                            required
 
-
-                                        />
 
                                     </Form.Input>
 
