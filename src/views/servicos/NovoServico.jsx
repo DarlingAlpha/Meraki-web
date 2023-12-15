@@ -1,16 +1,44 @@
 import axios from "axios";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 import { Button, Card, Form, Header, Icon, Image, Modal, Segment, TextArea } from 'semantic-ui-react';
 
 export default function NovoServico() {
+  const { state } = useLocation();
+  const [idProduto, setIdProduto] = useState();
+  const [titulo, setTitulo] = useState();
+  const [codigo, setCodigo] = useState();
+  const [valor, setValor] = useState();
+  const [descricao, setDescricao] = useState();
   const [imagem, setImagem] = useState();
-  const [idProduto, setidProduto] = useState();
+
+  useEffect(() => {
+    if (state != null && state.id !=null){
+        axios.get("http://localhost:8082/api/produto/" + state.id)
+        .then((response) =>{
+            setIdProduto(response.data.id)
+            setTitulo(response.data.titulo)
+            setCodigo(response.data.codigo)
+            setDescricao(response.data.descricao)
+            setValor(response.data.valor)
+            setImagem(response.data.imagem)
+        })
+    }
+}, [state])
+
+function salvar(){
+  let produtoRequest = {
+    titulo:titulo,
+    codigo:codigo,
+    valor:valor,
+    descricao:descricao,
+    imagem:imagem
 
 
-  //botar dentro do axios
-  if (idproduto != null) { //Alteração:
-    axios.put("http://localhost:8082/api/produto/" + idproduto, produtoRequest)
+  }
+  if (idProduto != null) { //Alteração:
+    axios.put("http://localhost:8082/api/produto/" + idProduto, produtoRequest)
 
       .then((response) => { console.log('produto alterado com sucesso.') })
       .catch((error) => { console.log('Erro ao alter um produto.') })
@@ -28,6 +56,9 @@ export default function NovoServico() {
 
       .catch((error) => { console.log('Erro ao incluir o produto.') })
   }
+}
+  //botar dentro do axios
+  
 
 
 
@@ -38,81 +69,7 @@ export default function NovoServico() {
   const HandleClick = () => {
     console.log('Clicado')
   };
-  const codigo = [
-    { key: 'Bu', text: 'Buffet', value: 'Buffet' },
-    { key: 'De', text: 'Decoração', value: 'Decoracao' }
-  ]
-  const titulo = [
-    { key: 'Co', text: 'Corporativa', value: 'Corporativa' },
-    { key: 'In', text: 'Infantil', value: 'Infantil' }
-
-  ]
-
-  // const Regiao = [
-  //   { key: 'Ja', text: 'Jaboatão dos Guararapes', value: 'Jaboatao dos Guararapes' },
-  //   { key: 'Re', text: 'Recife', value: 'Recife' }
-
-  // ]
-  // simulador de Back-End
-  const [Produto] = useState([
-    {
-      codigo: "01",
-      Foto: "https://get.pxhere.com/photo/table-celebration-decoration-meal-food-carnival-colorful-dessert-deco-festival-children-party-event-birthday-table-decoration-children's-birthday-invitation-guests-carnival-party-fasnet-shrove-monday-themed-party-partyaritkel-invited-1287302.jpg",
-      Titulo: "Buffet",
-      Descricao: "Voce vai adorar"
-
-    }, {
-      codigo: "01",
-      Foto: "https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg",
-      Titulo: "Decoração",
-      Descricao: "Descrições"
-
-    }, {
-      codigo: "01",
-      Foto: "https://as2.ftcdn.net/v2/jpg/05/86/91/55/1000_F_586915596_gPqgxPdgdJ4OXjv6GCcDWNxTjKDWZ3JD.jpg",
-      Titulo: "Decoração",
-      Descricao: "Descrições"
-
-    }, {
-      codigo: "01",
-      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
-      Titulo: "Decoração",
-      Descricao: "Descrições"
-
-    }, {
-      codigo: "01",
-      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
-      Titulo: "Decoração",
-      Descricao: "Descrições"
-
-    }, {
-      codigo: "01",
-      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
-      Titulo: "Decoração",
-      Descricao: "Descrições"
-
-    }, {
-      codigo: "01",
-      Foto: "https://inspiresuafesta.com/wp-content/uploads/2013/08/lista-de-doces-para-mesa-de-guloseimas-festa-infantil-1.jpg",
-      Titulo: "Decoração",
-      Descricao: "Descrições"
-
-    }
-
-
-
-  ])
-
-  const [Fornecedor] = useState([
-    {
-      id: "01",
-      Foto: "https://img.freepik.com/vetores-gratis/logotipo-elegante-dourado-com-moldura_52683-13462.jpg?w=740&t=st=1702319452~exp=1702320052~hmac=23b5c082ae762a3d67f59f71b6d9923e271804dc4c6ae951a86043ac97d9f282",
-      Nome: "Gabriel Gomes Lourenço ",
-
-    }
-
-  ])
-
+  
 
 
   return (
@@ -207,7 +164,8 @@ export default function NovoServico() {
                   placeholder='Descrição de serviço' />
               </Form.Group>
 
-              <Button>Adicionar</Button>
+              <Button  onClick={() => salvar()}>
+                Adicionar</Button>
 
             </Form>
 
@@ -216,7 +174,7 @@ export default function NovoServico() {
 
         </Modal>
 
-        {Produto.map(Produto => (
+       
           <div
             style={{
               display: 'flex',
@@ -227,19 +185,19 @@ export default function NovoServico() {
                 <Image
                   floated='right'
                   style={{ width: '19em', height: '20em' }}
-                  src={Produto.Foto}
+                  src=''
                 />
 
                 <Card.Content>
 
-                  <Card.Header>{Produto.Titulo}</Card.Header>
+                  <Card.Header></Card.Header>
                   <hr />
                   <Card.Meta>
                     <p style={{ FontSize: 'x-larg' }}>
-                      Codigo:</p>{Produto.codigo}
+                      Codigo:</p>
                   </Card.Meta>
                   <Card.Description>
-                    {Produto.Descricao}
+                    
                   </Card.Description>
                 </Card.Content>
                 <Card.Content>
@@ -322,7 +280,9 @@ export default function NovoServico() {
                             placeholder='Descrição de serviço' />
                         </Form.Group>
 
-                        <Button >Adicionar Serviço</Button>
+                        <Button >
+                          Adicionar Serviço
+                        </Button>
 
                       </Form>
 
@@ -362,7 +322,6 @@ export default function NovoServico() {
               </Card>
             </Card.Group>
           </div>
-        ))}
       </body>
     </html>
 
