@@ -5,9 +5,6 @@ import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaCliente() {
     const [nome, setNome] = useState();
-    const [email, setEmail] = useState();
-    const [senha, setSenha] = useState();
-    const [telefone, setTelefone] = useState();
 
     // function File(img) {
     //     const selecionar = img.target.files[0];
@@ -65,7 +62,7 @@ export default function CadaCliente() {
                                         className="for_for"
                                         width={16}
 
-                                        onChange={e => setEmail(e.target.value)}
+
                                     >
 
 

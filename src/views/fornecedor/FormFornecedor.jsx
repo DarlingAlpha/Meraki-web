@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import InputMask from 'react-input-mask';
 import { Link } from 'react-router-dom';
@@ -6,24 +5,8 @@ import { Button, Container, Form, Icon } from 'semantic-ui-react';
 
 export default function CadaFornecedor() {
 
-//botar dentro do axios
-if (idfornecedor != null) { //Alteração:
-    axios.put("http://localhost:8080/api/fornecedor/" + idfornecedor, fornecedorRequest)
-        .then((response) => { 
-            console.log('Cliente alterado com sucesso.') 
-        
-        let formData= new FormData();
-        formData.append('imagem',imagem);
-        axios.put('http://localhost:8080/api/fornecedor/cadastrarImagem/'+Response.data.id,formData)
-    })
-        .catch((error) => { console.log('Erro ao alter um cliente.') })
-} else { //Cadastro:
-    axios.post("http://localhost:8080/api/fornecedor", fornecedorRequest)
-        .then((response) => { console.log('Cliente cadastrado com sucesso.') })
-        .catch((error) => { console.log('Erro ao incluir o cliente.') })
-}
-    
-    // function File(img) {
+
+
     //     const selecionar = img.target.files[0];
     //     const imagem = document.getElementById('imagemExibicao');
 
@@ -51,7 +34,7 @@ if (idfornecedor != null) { //Alteração:
 
                         <div style={{ marginTop: '5%' }}>
 
-                            <Form   enctype="multipart/form-data">
+                            <Form enctype="multipart/form-data">
                                 <Form.Group >
 
                                     <Form.Input
@@ -66,7 +49,7 @@ if (idfornecedor != null) { //Alteração:
 
                                     />
                                     <p>
-                                        <input type="file"  name='file'/>
+                                        <input type="file" name='file' />
                                     </p>
                                 </Form.Group>
 
