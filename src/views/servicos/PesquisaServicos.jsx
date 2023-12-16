@@ -1,172 +1,88 @@
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from 'react';
 import { Button, Card, Dropdown, Grid, Icon, Image, Menu, Modal, Rating } from "semantic-ui-react";
 
 
 export default function CategoriasPesquisa() {
+    const [lista, setLista] = useState([]);
+    const [menuFiltro, setMenuFiltro] = useState();
+    const [idCategoria, setIdCategoria] = useState();
+    const [codigo] = useState();
+    const [titulo] = useState();
+    const [listaCategoriaProduto, setListaCategoriaProduto] = useState([]);
     const [open, setOpen] = React.useState(false)
-    const [Categorias] = useState([
-        {
-            id: "06",
-            key: 'Buffet ',
-            text: 'Buffet ',
-            value: 'Buffet ',
+    
+    useEffect(() => {
+      carregarLista();
+    }, [])
+  
+    function carregarLista() {
+  
+      axios.get("http://localhost:8082/api/fornecedor")
+        .then((response) => {
+          setLista(response.data)
+        })
 
-        },
-        {
-            id: "06",
-            key: 'Ornamentação ',
-            text: 'Ornamentação ',
-            value: 'Ornamentação ',
+        axios.get("http://localhost:8082/api/categoria-produto")
+        .then((response) => {
 
-        }, {
-            id: "06",
-            key: 'Espaços  ',
-            text: 'Espaços  ',
-            value: 'Espaços  ',
+            const dropDownCategorias = [];
+            dropDownCategorias.push({ text: '', value: '' });
+            response.data.map(c => (
+                dropDownCategorias.push({ text: c.descricao, value: c.id })
+            ))
 
-        }, {
-            id: "06",
-            key: 'Personalizados  ',
-            text: 'Personalizados  ',
-            value: 'Personalizados  ',
+            setListaCategoriaProduto(dropDownCategorias)
 
-        }, {
-            id: "06",
-            key: 'Fotográfos  ',
-            text: 'Fotográfos  ',
-            value: 'Fotográfos  ',
+        })
+    }
+    
+   
+    function handleMenuFiltro() {
 
-        }, {
-            id: "06",
-            key: 'Decoração  ',
-            text: 'Decoração  ',
-            value: 'Decoração  ',
-
-        }, {
-            id: "06",
-            key: ' SomEIluminação  ',
-            text: ' Som e iluminação  ',
-            value: 'Som e iluminação  ',
-
+        if (menuFiltro === true) {
+            setMenuFiltro(false);
+        } else {
+            setMenuFiltro(true);
         }
-    ])
-    // simulador de dados do banco de dado
-    const [Cliente] = useState([
-        {
-            id: "01",
-            Foto: "https://upload.wikimedia.org/wikipedia/commons/1/14/Foto-de-Perfil-en-WhatsApp-696x364.jpg",
-            Nome: "Mariana Barros do Barro ",
-            Email: "Josel@Gmail.com.br",
-            Regiao: 'Mato Grosso',
-            Telefone: '(81)92322-3131'
+    }
 
+
+    function handleChangeCategoriaProduto(value) {
+
+        filtrarProdutos(codigo, titulo, value);
+    }
+
+    async function filtrarProdutos(idCategoriaParam) {
+
+        let formData = new FormData();
+       
+        if (idCategoriaParam !== undefined) {
+            setIdCategoria(idCategoriaParam)
+            formData.append('idCategoria', idCategoriaParam);
         }
 
-    ])
-    const [Produto] = useState([
-        {
-            codigo: "01",
-            Foto: "https://get.pxhere.com/photo/table-celebration-decoration-meal-food-carnival-colorful-dessert-deco-festival-children-party-event-birthday-table-decoration-children's-birthday-invitation-guests-carnival-party-fasnet-shrove-monday-themed-party-partyaritkel-invited-1287302.jpg",
-            Titulo: "Buffet",
-            Descricao: "Voce vai adorar",
-            valor: "R$ 5.000"
 
-        }, {
-            codigo: "02",
-            Foto: "https://get.pxhere.com/photo/sweet-meal-food-carnival-color-colorful-cupcake-baking-dessert-delicious-cake-brand-pastries-face-children-icing-party-funny-candy-canape-faces-clowns-sweetness-treat-confectionery-delicacy-small-cakes-hand-made-sweets-children's-birthday-americans-carnival-party-fasnet-petit-four-clowngesichter-907612.jpg",
-            Titulo: "Decoração",
-            Descricao: "Faço produtos lindos para meus Clientes",
-            valor: "R$ 5.000"
 
-        }, {
-            codigo: "02",
-            Foto: "https://get.pxhere.com/photo/sweet-meal-food-carnival-color-colorful-cupcake-baking-dessert-delicious-cake-brand-pastries-face-children-icing-party-funny-candy-canape-faces-clowns-sweetness-treat-confectionery-delicacy-small-cakes-hand-made-sweets-children's-birthday-americans-carnival-party-fasnet-petit-four-clowngesichter-907612.jpg",
-            Titulo: "Decoração",
-            Descricao: "Faço produtos lindos para meus Clientes",
-            valor: "R$ 5.000"
+        await axios.post("http://localhost:8082/api/produto/filtrar", formData)
+            .then((response) => {
+                setLista(response.data)
+            })
+    }
+    
+    axios.get("http://localhost:8082/api/categoria-produto")
+    .then((response) => {
 
-        }
+        const dropDownCategorias = [];
+        dropDownCategorias.push({ text: '', value: '' });
+        response.data.map(c => (
+            dropDownCategorias.push({ text: c.descricao, value: c.id })
+        ))
 
-    ])
+        setListaCategoriaProduto(dropDownCategorias)
 
-    const [Fornecedor] = useState([
-        {
-            id: "01",
-            Foto: "https://www.guiachristianemichelin.com.br/wp-content/uploads/2019/08/26239894_332008323948311_1508441866704553138_n.jpg",
-            Fornecedor: "Pedro Heleno da silva barros",
-            Apelido: "Pedrinho",
-            Email: "PedroH@Gmail.com.br",
-            NomeDaEmpresa: "Meraki Celebrações",
-            regiao: 'Vista Alegre',
-            Telefone: '(81) 92772-2594'
+    })
 
-        }, {
-            id: "02",
-            Foto: "https://img.freepik.com/vetores-premium/simbolo-de-direitos-autorais-quebrado-com-sombra-conceito-de-exclusividade-justica-legal-acesso-restrito-violacao-roubo-propriedade-isolado-em-fundo-cinza-ilustracao-em-vetor-logotipo-moderno-tendencia-estilo-simples_117142-225.jpg?w=740",
-            Fornecedor: "Gabriel",
-            Apelido: "Biel",
-            Email: "Gabel@Gmail.com.br",
-            NomeDaEmpresa: "Modelo Meraki",
-            regiao: 'Alagoas',
-            Telefone: '(81) 9040-4598'
-
-        }, {
-            id: "03",
-            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
-            Fornecedor: "Jose",
-            Apelido: "Linda",
-            Email: "Linda@Gmail.com.br",
-            NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife', Telefone: '(81) 95562-2553'
-
-        }, {
-            id: "03",
-            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
-            Fornecedor: "Jose",
-            Apelido: "Linda",
-            Email: "Linda@Gmail.com.br",
-            NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife', Telefone: '(81) 95562-2553'
-
-        }, {
-            id: "03",
-            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
-            Fornecedor: "Jose",
-            Apelido: "Linda",
-            Email: "Linda@Gmail.com.br",
-            NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife', Telefone: '(81) 95562-2553'
-
-        }, {
-            id: "03",
-            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
-            Fornecedor: "Jose",
-            Apelido: "Linda",
-            Email: "Linda@Gmail.com.br",
-            NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife', Telefone: '(81) 95562-2553'
-
-        }, {
-            id: "03",
-            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
-            Fornecedor: "Jose",
-            Apelido: "Linda",
-            Email: "Linda@Gmail.com.br",
-            NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife', Telefone: '(81) 95562-2553'
-
-        }, {
-            id: "03",
-            Foto: "https://img.freepik.com/psd-gratuitas/efeito-de-estilo-de-texto-3d-dourado_1389-1335.jpg?w=996&t=st=1701391499~exp=1701392099~hmac=24ae282e475ddd0ebd241cf83ac5a53e8eb82dee59f9ba93b1638b861678c5d7",
-            Fornecedor: "Jose",
-            Apelido: "Linda",
-            Email: "Linda@Gmail.com.br",
-            NomeDaEmpresa: "Linda Festas",
-            Regiao: 'Recife', Telefone: '(81) 95562-2553'
-
-        }
-
-    ]);
     return (
         <html className='pesquisa_servicos'>
 
@@ -182,15 +98,20 @@ export default function CategoriasPesquisa() {
 
                 <div style={{ marginleft: "auto" }}>
                     <Menu >
-                        <Dropdown text='Região' multiple icon='filter'>
+                        <Dropdown text='Categoria' multiple icon='filter'>
                             <Dropdown.Menu>
                                 <Dropdown.Menu scrolling>
-                                    {Categorias.map(Categorias => (
+                                
                                         <Dropdown.Item
-                                            key={Categorias} {...Categorias}
-                                        />
+                                         placeholder='Filtrar por Categoria'
+                                         label='Categoria'
+                                         options={listaCategoriaProduto}
+                                         value={idCategoria}
+                                         onChange={(e, { value }) => {
+                                             handleChangeCategoriaProduto(value)
+                                         }}/>
 
-                                    ))}
+                                
 
                                 </Dropdown.Menu>
                             </Dropdown.Menu>
@@ -199,15 +120,17 @@ export default function CategoriasPesquisa() {
 
 
                     <Menu >
-                        <Dropdown text='Categoria' multiple icon='filter'>
+                        <Dropdown text='Região' multiple icon='filter'>
                             <Dropdown.Menu>
                                 <Dropdown.Menu scrolling>
-                                    {Categorias.map(Categorias => (
+                                    tem que ver como q vai filtrar regiao, se tiver regiao na api produto acho q fica melhor de fazer
+
+                                    {/* {lista.map(regiao => (
                                         <Dropdown.Item
-                                            key={Categorias} {...Categorias}
+                                        {regiao.Fornecedores}
                                         />
 
-                                    ))}
+                                    ))} */}
 
                                 </Dropdown.Menu>
                             </Dropdown.Menu>
@@ -216,9 +139,10 @@ export default function CategoriasPesquisa() {
                 </div>
 
             </head>
+            
             <body className='Body_servicoslist' style={{ marginTop: '5em' }} >
 
-                {Fornecedor.map(Fornecedor => (
+            {lista.map(Fornecedor => (
                     <Card.Group >
                         <Card>
                             <Image
@@ -232,7 +156,7 @@ export default function CategoriasPesquisa() {
                                 </Card.Meta>
                                 <Card.Description>
                                     <h3>Contato:</h3>
-                                    <a href="https://wa.me/{Fornecedor.Telefone}" target='_blank'>{Fornecedor.Telefone}</a>
+                                    <a href="https://wa.me/" target='_blank'>{Fornecedor.Telefone}</a>
                                 </Card.Description>
                             </Card.Content>
                             <Card.Content extra>
@@ -256,43 +180,41 @@ export default function CategoriasPesquisa() {
                                 trigger={<Button color='blue'>Ver Mais</Button>}
                             >
                                 <div className='perfil_ModelServiços'>
-                                    {Cliente.map(Cliente => (
+                                 
 
-                                        <div key={Cliente.id} style={{ backgroundColor: '' }}>
+                                        <div key={Fornecedor.id} style={{ backgroundColor: '' }}>
                                             {/* Falta Imagem */}
                                             <Image circular
-                                                src={Cliente.Foto} style={{ width: '22em', height: '21em' }}>
+                                                src={Fornecedor.Foto} style={{ width: '22em', height: '21em' }}>
 
                                             </Image>
                                             {/* Nome do fornecedor */}
                                             <div  >
-                                                {Cliente.Nome}
+                                                {Fornecedor.Nome}
                                             </div>
                                         </div>
-                                    ))
-                                    }
+                                  
 
                                     <hr />
                                     <div className='div_perfil' style={{
 
                                     }}>
 
-                                        {Cliente.map(Cliente => (
+                                        
                                             <div>
                                                 <h1 align="center" > Meus dados</h1>
-                                                <h2>{Cliente.Nome}</h2>
+                                                <h2>{Fornecedor.Nome}</h2>
                                                 <hr style={{ marginTop: '-1.2em' }} />
                                                 <h3>Email :</h3>
-                                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Linda@Gmail.com.br" target='_blank'>{Fornecedor.Email}</a>
+                                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=" target='_blank'>{Fornecedor.Email}</a>
 
-                                                <h3>Região :</h3><p>{Cliente.Regiao}</p>
+                                                {/* <h3>Região :</h3><p>{Fornecedor.Regiao}</p> */}
 
                                                 <h3  >Telefone para contato :</h3>
                                                 <a href="https://wa.me/" target='_blank'>{Fornecedor.Telefone}</a>
                                             </div>
 
-                                        ))
-                                        }
+                                       
                                     </div>
 
 
@@ -300,9 +222,8 @@ export default function CategoriasPesquisa() {
 
 
                                 </div>
-                                {
-                                    Produto.map(Produto => (
-
+                              
+                                {lista.map(Produto => (
                                         <Grid >
                                             <div className='grid_modalServicos'>
                                                 <div>
@@ -339,19 +260,19 @@ export default function CategoriasPesquisa() {
                                             </div>
 
                                         </Grid>
+                                        ))}
 
 
-                                    ))
-                                }
+                          
 
                             </Modal>
                         </Card>
                     </Card.Group>
-
-                ))}
-
+ ))}
+              
 
             </body>
+               
         </html >
 
 

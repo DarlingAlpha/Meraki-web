@@ -5,26 +5,10 @@ import { useLocation } from 'react-router-dom';
 import { Button, Card, Form, Header, Icon, Image, Modal, Segment, TextArea } from 'semantic-ui-react';
 
 export default function NovoServico() {
-  useEffect(() => {
-    carregarLista();
-  }, [])
-
-  function carregarLista() {
-
-    axios.get("http://localhost:808/api/produto")
-      .then((response) => {
-        setLista(response.data)
-      })
-  }
-  axios.get("http://localhost:8082/api/categoria-produto")
-    .then((response) => {
-      const dropDownCategorias = response.data.map(c => ({ text: c.descricao, value: c.id }));
-      setListaCategoria(dropDownCategorias);
-    })
-
-  // metodos post dq pra baixo
   const { state } = useLocation();
+  const [openModal, setOpenModal] = useState(false);
   const [idProduto, setIdProduto] = useState();
+  const [idRemover, setIdRemover] = useState();
   const [titulo, setTitulo] = useState();
   const [codigo, setCodigo] = useState();
   const [valor, setValor] = useState();
@@ -33,6 +17,30 @@ export default function NovoServico() {
 
   const [listaCategoria, setListaCategoria] = useState([]);
   const [idCategoria, setIdCategoria] = useState();
+  const [lista, setLista] = useState([]);
+    
+    
+  useEffect(() => {
+    carregarLista();
+  }, [])
+
+  function carregarLista() {
+
+    axios.get("http://localhost:8082/api/produto")
+      .then((response) => {
+        setLista(response.data)
+      })
+  }
+
+
+  axios.get("http://localhost:8082/api/categoria-produto")
+    .then((response) => {
+      const dropDownCategorias = response.data.map(c => ({ text: c.descricao, value: c.id }));
+      setListaCategoria(dropDownCategorias);
+    })
+   
+
+  
 
   useEffect(() => {
     if (state != null && state.id != null) {
@@ -83,6 +91,27 @@ export default function NovoServico() {
         .catch((error) => { console.log('Erro ao incluir o produto.') })
     }
   }
+  function confirmaRemover(id) {
+    setOpenModal(true)
+    setIdRemover(id)
+}
+async function remover() {
+
+    await axios.delete('http://localhost:8082/api/produto/' + idRemover)
+        .then((response) => {
+
+            console.log('produto removido com sucesso.')
+
+            axios.get("http://localhost:8082/api/produto")
+                .then((response) => {
+                    setLista(response.data)
+                })
+        })
+        .catch((error) => {
+            console.log('Erro ao remover um produto.')
+        })
+    setOpenModal(false)
+}
   //botar dentro do axios
 
 
@@ -90,11 +119,9 @@ export default function NovoServico() {
 
   const [op, setOp] = React.useState(false)
   const [op1, setOp1] = React.useState(false)
-  const [op2, setOp2] = React.useState(false)
+  
 
-  const HandleClick = () => {
-    console.log('Clicado')
-  };
+
 
 
 
@@ -120,7 +147,7 @@ export default function NovoServico() {
           open={op}
           onClose={() => setOp(false)}
           onOpen={() => setOp(true)}
-          trigger={<button onClick={HandleClick}>
+          trigger={<button >
             <Header as='h3'>
               <Header.Content>
                 Quais Seus Serviços?
@@ -131,7 +158,7 @@ export default function NovoServico() {
 
 
           <Segment >
-            <Form className='Form_Servico'>
+            <Form className='Form_Servico' enctype="multipart/form-data">
               <h1>Meu serviço</h1>
               <Form.Group Widths='equal'
 
@@ -227,7 +254,8 @@ export default function NovoServico() {
               <Image
                 floated='right'
                 style={{ width: '19em', height: '20em' }}
-                src=''
+                value={imagem}
+                onChange={e => setImagem(e.target.value)}
               />
 
               <Card.Content>
@@ -235,28 +263,31 @@ export default function NovoServico() {
                 <Card.Header></Card.Header>
                 <hr />
                 <Card.Meta>
+               
                   <p style={{ FontSize: 'x-larg' }}>
-                    Codigo:</p>
+                  Codigo:</p>
+
+                 value={imagem}
+                 onChange={e => setImagem(e.target.value)}
+                    
                 </Card.Meta>
                 <Card.Description>
-
+                value={descricao}
+                onChange={e => setDescricao(e.target.value)}
                 </Card.Description>
               </Card.Content>
               <Card.Content>
+              {lista.map(produto => (
                 <Modal style={{
-
                   width: '50%',
-
                   marginleft: '2em'
-
                 }}
 
                   open={op1}
                   onClose={() => setOp1(false)}
                   onOpen={() => setOp1(true)}
-
                   size='small'
-                  trigger={<Button color='blue'>Editar</Button>}
+                  trigger={<Button color='blue' state={{id: produto.id}}>Editar</Button>}
                 >
 
 
@@ -276,8 +307,9 @@ export default function NovoServico() {
                         <input
                           type="file"
                           name="imagem"
-                          accept="image/*"
-                          onChange={File}
+                      
+                          value={imagem}
+                          onChange={e => setImagem(e.target.value)}
                         />
 
                       </Form.Group >
@@ -288,7 +320,8 @@ export default function NovoServico() {
                           fluid
                           label="codigo"
                           width={5}
-                          options={codigo}
+                          value={codigo}
+                          onChange={e => setCodigo(e.target.value)}
 
                           placeholder='Qual o codigo?'
                         />
@@ -297,8 +330,8 @@ export default function NovoServico() {
                           fluid
                           label="Titulo"
                           width={5}
-
-                          options={titulo}
+                          value={titulo}
+                          onChange={e => setTitulo(e.target.value)}
                           placeholder='Qual a Decoração do serviço?'
                         />
 
@@ -306,7 +339,8 @@ export default function NovoServico() {
                           fluid
                           label="valor"
                           width={5}
-
+                          value={valor}
+                          onChange={e => setValor(e.target.value)}
                           placeholder='Qual o Valor do serviço?'
                         >
                           <InputMask
@@ -319,6 +353,8 @@ export default function NovoServico() {
 
                       <Form.Group>
                         <TextArea
+                         value={descricao}
+                         onChange={e => setDescricao(e.target.value)}
                           placeholder='Descrição de serviço' />
                       </Form.Group>
 
@@ -332,13 +368,14 @@ export default function NovoServico() {
 
 
                 </Modal>
+                 ))}
                 <Modal
                   basic
-                  onClose={() => setOp2(false)}
-                  onOpen={() => setOp2(true)}
-                  open={op2}
+                  onClose={() => setOpenModal(false)}
+                  onOpen={() => setOpenModal(true)}
+                  open={openModal}
                   size='small'
-                  trigger={<Button color='red'>Deletar</Button>}
+                  trigger={<Button color='red' onClick={e => confirmaRemover(produto.id)}>Deletar</Button>}
                 >
                   <Header icon>
                     <Icon color='red' name='delete' />
@@ -350,10 +387,10 @@ export default function NovoServico() {
                     </h3>
                   </Modal.Content>
                   <Modal.Actions>
-                    <Button basic color='red' inverted onClick={() => setOp2(false)}>
+                    <Button basic color='red'  inverted onClick={() => setOpenModal(false)}>
                       <Icon name='remove' /> Não
                     </Button>
-                    <Button color='green' inverted onClick={() => setOp2(false)}>
+                    <Button color='green' inverted onClick={() => remover()}>
                       <Icon name='checkmark' /> Sim
                     </Button>
                   </Modal.Actions>
