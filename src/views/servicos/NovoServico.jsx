@@ -249,6 +249,7 @@ async function remover() {
             display: 'flex',
             marginTop: '2em'
           }}>
+{lista.map(Produto => (
           <Card.Group >
             <Card>
               <Image
@@ -264,20 +265,23 @@ async function remover() {
                 <hr />
                 <Card.Meta>
                
-                  <p style={{ FontSize: 'x-larg' }}>
+                  <p style={{ FontSize: 'x-larg' }}
+                    value={codigo}
+                    onChange={e => setCodigo(e.target.value)}>
                   Codigo:</p>
 
-                 value={imagem}
-                 onChange={e => setImagem(e.target.value)}
+               
                     
                 </Card.Meta>
-                <Card.Description>
-                value={descricao}
-                onChange={e => setDescricao(e.target.value)}
+                <Card.Description
+                   value={descricao}
+                   onChange={e => setDescricao(e.target.value)}>
+             
                 </Card.Description>
               </Card.Content>
-              <Card.Content>
               {lista.map(produto => (
+              <Card.Content>
+             
                 <Modal style={{
                   width: '50%',
                   marginleft: '2em'
@@ -368,7 +372,7 @@ async function remover() {
 
 
                 </Modal>
-                 ))}
+                
                 <Modal
                   basic
                   onClose={() => setOpenModal(false)}
@@ -397,9 +401,10 @@ async function remover() {
                 </Modal>
 
               </Card.Content>
-
+ ))}
             </Card>
           </Card.Group>
+          ))}
         </div>
       </body>
     </html>

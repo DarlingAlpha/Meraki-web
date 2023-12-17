@@ -11,7 +11,7 @@ export default function CadaCliente() {
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [telefone, setTelefone] = useState();
-
+    const [imagem, setImagem] = useState();
 
 
     useEffect(() => {
@@ -49,6 +49,9 @@ export default function CadaCliente() {
 
                 .then((response) => {
                     console.log('cliente cadastrado com sucesso.')
+                    let formData = new FormData();
+                    formData.append('imagem', imagem);
+                    axios.put('http://localhost:8082/api/cliente/cadastrarImagem/' + Response.data.id, formData)
 
 
                 })
@@ -71,9 +74,16 @@ export default function CadaCliente() {
 
                         <div style={{ marginTop: '5%' }}>
 
-                            <Form >
+                            <Form enctype="multipart/form-data">
 
-
+                            <Form.Input
+                                    className="for_for"
+                                    label='Foto de perfil'
+                                    type="file"
+                                    name="file"
+                                    value={Image}
+                                    onChange={e => setImagem(e.target.value)}
+                               / >
                                 <Form.Group >
 
                                     <Form.Input

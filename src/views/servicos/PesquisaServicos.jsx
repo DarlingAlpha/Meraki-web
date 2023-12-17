@@ -104,7 +104,6 @@ export default function CategoriasPesquisa() {
                                 
                                         <Dropdown.Item
                                          placeholder='Filtrar por Categoria'
-                                         label='Categoria'
                                          options={listaCategoriaProduto}
                                          value={idCategoria}
                                          onChange={(e, { value }) => {
