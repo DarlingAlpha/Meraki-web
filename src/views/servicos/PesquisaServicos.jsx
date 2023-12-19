@@ -11,33 +11,33 @@ export default function CategoriasPesquisa() {
     const [titulo] = useState();
     const [listaCategoriaProduto, setListaCategoriaProduto] = useState([]);
     const [open, setOpen] = React.useState(false)
-    
+
     useEffect(() => {
-      carregarLista();
+        carregarLista();
     }, [])
-  
+
     function carregarLista() {
-  
-      axios.get("http://localhost:8082/api/fornecedor")
-        .then((response) => {
-          setLista(response.data)
-        })
+
+        axios.get("http://localhost:8082/api/fornecedor")
+            .then((response) => {
+                setLista(response.data)
+            })
 
         axios.get("http://localhost:8082/api/categoria-produto")
-        .then((response) => {
+            .then((response) => {
 
-            const dropDownCategorias = [];
-            dropDownCategorias.push({ text: '', value: '' });
-            response.data.map(c => (
-                dropDownCategorias.push({ text: c.descricao, value: c.id })
-            ))
+                const dropDownCategorias = [];
+                dropDownCategorias.push({ text: '', value: '' });
+                response.data.map(c => (
+                    dropDownCategorias.push({ text: c.descricao, value: c.id })
+                ))
 
-            setListaCategoriaProduto(dropDownCategorias)
+                setListaCategoriaProduto(dropDownCategorias)
 
-        })
+            })
     }
-    
-   
+
+
     function handleMenuFiltro() {
 
         if (menuFiltro === true) {
@@ -56,7 +56,7 @@ export default function CategoriasPesquisa() {
     async function filtrarProdutos(idCategoriaParam) {
 
         let formData = new FormData();
-       
+
         if (idCategoriaParam !== undefined) {
             setIdCategoria(idCategoriaParam)
             formData.append('idCategoria', idCategoriaParam);
@@ -69,19 +69,19 @@ export default function CategoriasPesquisa() {
                 setLista(response.data)
             })
     }
-    
+
     axios.get("http://localhost:8082/api/categoria-produto")
-    .then((response) => {
+        .then((response) => {
 
-        const dropDownCategorias = [];
-        dropDownCategorias.push({ text: '', value: '' });
-        response.data.map(c => (
-            dropDownCategorias.push({ text: c.descricao, value: c.id })
-        ))
+            const dropDownCategorias = [];
+            dropDownCategorias.push({ text: '', value: '' });
+            response.data.map(c => (
+                dropDownCategorias.push({ text: c.descricao, value: c.id })
+            ))
 
-        setListaCategoriaProduto(dropDownCategorias)
+            setListaCategoriaProduto(dropDownCategorias)
 
-    })
+        })
 
     return (
         <html className='pesquisa_servicos'>
@@ -101,16 +101,16 @@ export default function CategoriasPesquisa() {
                         <Dropdown text='Categoria' multiple icon='filter'>
                             <Dropdown.Menu>
                                 <Dropdown.Menu scrolling>
-                                
-                                        <Dropdown.Item
-                                         placeholder='Filtrar por Categoria'
-                                         options={listaCategoriaProduto}
-                                         value={idCategoria}
-                                         onChange={(e, { value }) => {
-                                             handleChangeCategoriaProduto(value)
-                                         }}/>
 
-                                
+                                    <Dropdown.Item
+                                        placeholder='Filtrar por Categoria'
+                                        options={listaCategoriaProduto}
+                                        value={idCategoria}
+                                        onChange={(e, { value }) => {
+                                            handleMenuFiltro(value)
+                                        }} />
+
+
 
                                 </Dropdown.Menu>
                             </Dropdown.Menu>
@@ -124,12 +124,16 @@ export default function CategoriasPesquisa() {
                                 <Dropdown.Menu scrolling>
                                     tem que ver como q vai filtrar regiao, se tiver regiao na api produto acho q fica melhor de fazer
 
-                                    {/* {lista.map(regiao => (
-                                        <Dropdown.Item
-                                        {regiao.Fornecedores}
-                                        />
+                                    <Dropdown.Item
+                                        placeholder='Filtrar por Categoria'
+                                        options={listaCategoriaProduto}
+                                        value={idCategoria}
+                                        onChange={(e, { value }) => {
+                                            handleChangeCategoriaProduto(value)
+                                        }} />
 
-                                    ))} */}
+
+
 
                                 </Dropdown.Menu>
                             </Dropdown.Menu>
@@ -138,10 +142,10 @@ export default function CategoriasPesquisa() {
                 </div>
 
             </head>
-            
+
             <body className='Body_servicoslist' style={{ marginTop: '5em' }} >
 
-            {lista.map(Fornecedor => (
+                {lista.map(Fornecedor => (
                     <Card.Group >
                         <Card>
                             <Image
@@ -179,41 +183,41 @@ export default function CategoriasPesquisa() {
                                 trigger={<Button color='blue'>Ver Mais</Button>}
                             >
                                 <div className='perfil_ModelServiços'>
-                                 
 
-                                        <div key={Fornecedor.id} style={{ backgroundColor: '' }}>
-                                            {/* Falta Imagem */}
-                                            <Image circular
-                                                src={Fornecedor.Foto} style={{ width: '22em', height: '21em' }}>
 
-                                            </Image>
-                                            {/* Nome do fornecedor */}
-                                            <div  >
-                                                {Fornecedor.Nome}
-                                            </div>
+                                    <div key={Fornecedor.id} style={{ backgroundColor: '' }}>
+                                        {/* Falta Imagem */}
+                                        <Image circular
+                                            src={Fornecedor.Foto} style={{ width: '22em', height: '21em' }}>
+
+                                        </Image>
+                                        {/* Nome do fornecedor */}
+                                        <div  >
+                                            {Fornecedor.Nome}
                                         </div>
-                                  
+                                    </div>
+
 
                                     <hr />
                                     <div className='div_perfil' style={{
 
                                     }}>
 
-                                        
-                                            <div>
-                                                <h1 align="center" > Meus dados</h1>
-                                                <h2>{Fornecedor.Nome}</h2>
-                                                <hr style={{ marginTop: '-1.2em' }} />
-                                                <h3>Email :</h3>
-                                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=" target='_blank'>{Fornecedor.Email}</a>
 
-                                                {/* <h3>Região :</h3><p>{Fornecedor.Regiao}</p> */}
+                                        <div>
+                                            <h1 align="center" > Meus dados</h1>
+                                            <h2>{Fornecedor.Nome}</h2>
+                                            <hr style={{ marginTop: '-1.2em' }} />
+                                            <h3>Email :</h3>
+                                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=" target='_blank'>{Fornecedor.Email}</a>
 
-                                                <h3  >Telefone para contato :</h3>
-                                                <a href="https://wa.me/" target='_blank'>{Fornecedor.Telefone}</a>
-                                            </div>
+                                            {/* <h3>Região :</h3><p>{Fornecedor.Regiao}</p> */}
 
-                                       
+                                            <h3  >Telefone para contato :</h3>
+                                            <a href="https://wa.me/" target='_blank'>{Fornecedor.Telefone}</a>
+                                        </div>
+
+
                                     </div>
 
 
@@ -221,57 +225,57 @@ export default function CategoriasPesquisa() {
 
 
                                 </div>
-                              
+
                                 {lista.map(Produto => (
-                                        <Grid >
-                                            <div className='grid_modalServicos'>
-                                                <div>
-                                                    <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
-                                                        <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
-                                                    </Grid.Column>
-                                                </div>
-
-                                                <div>
-                                                    <Grid.Column align="center" >
-                                                        <h2>{Produto.Titulo}</h2>
-                                                        <hr style={{ marginTop: '-1.4em' }} />
-
-                                                    </Grid.Column>
-
-
-                                                    <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
-                                                        <h1>Descrição do Serviço </h1>
-                                                        <hr style={{ marginTop: '-1.4em' }} />
-
-                                                        <h3>{Produto.Descricao}.</h3>
-                                                    </Grid.Column>
-
-                                                    <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
-
-
-                                                        <hr style={{ marginTop: '-1.4em' }} />
-                                                        <b> Valor :</b>
-                                                        <h3>{Produto.valor}.</h3>
-                                                    </Grid.Column>
-
-
-                                                </div>
+                                    <Grid >
+                                        <div className='grid_modalServicos'>
+                                            <div>
+                                                <Grid.Column style={{ marginTop: '2em', width: '30em', height: '30em' }}>
+                                                    <Image style={{ width: '40em', height: '29em' }} src={Produto.Foto} />
+                                                </Grid.Column>
                                             </div>
 
-                                        </Grid>
-                                        ))}
+                                            <div>
+                                                <Grid.Column align="center" >
+                                                    <h2>{Produto.Titulo}</h2>
+                                                    <hr style={{ marginTop: '-1.4em' }} />
+
+                                                </Grid.Column>
 
 
-                          
+                                                <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+                                                    <h1>Descrição do Serviço </h1>
+                                                    <hr style={{ marginTop: '-1.4em' }} />
+
+                                                    <h3>{Produto.Descricao}.</h3>
+                                                </Grid.Column>
+
+                                                <Grid.Column style={{ marginTop: '4em', marginRight: "4em" }} >
+
+
+                                                    <hr style={{ marginTop: '-1.4em' }} />
+                                                    <b> Valor :</b>
+                                                    <h3>{Produto.valor}.</h3>
+                                                </Grid.Column>
+
+
+                                            </div>
+                                        </div>
+
+                                    </Grid>
+                                ))}
+
+
+
 
                             </Modal>
                         </Card>
                     </Card.Group>
- ))}
-              
+                ))}
+
 
             </body>
-               
+
         </html >
 
 

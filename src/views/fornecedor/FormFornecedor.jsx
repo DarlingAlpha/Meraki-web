@@ -78,7 +78,7 @@ export default function CadaFornecedor() {
                                     label='Foto de perfil'
                                     type="file"
                                     name="file"
-                                    value={Image}
+                                    value={imagem}
                                     onChange={e => setImagem(e.target.value)}
                                 >
 
@@ -131,12 +131,13 @@ export default function CadaFornecedor() {
                                     >
                                     </Form.Input>
                                 </Form.Group >
-                     
+
                                 <Form.Group>
                                     <Form.Input
                                         fluid
                                         label='Telefone'
                                         width={16}
+                                        type="text"
                                         className="for_for"
                                         value={telefone}
                                         onChange={e => setTelefone(e.target.value)}
@@ -144,8 +145,6 @@ export default function CadaFornecedor() {
                                         <InputMask
                                             mask="(99) 9999.9999"
                                             maskChar={null}
-
-
                                         />
                                     </Form.Input>
 

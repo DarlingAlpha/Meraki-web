@@ -76,14 +76,14 @@ export default function CadaCliente() {
 
                             <Form enctype="multipart/form-data">
 
-                            <Form.Input
+                                <Form.Input
                                     className="for_for"
                                     label='Foto de perfil'
                                     type="file"
                                     name="file"
-                                    value={Image}
+                                    value={imagem}
                                     onChange={e => setImagem(e.target.value)}
-                               / >
+                                />
                                 <Form.Group >
 
                                     <Form.Input
